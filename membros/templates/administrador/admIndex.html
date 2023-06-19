@@ -1,0 +1,141 @@
+{% extends 'baseAdmin.html' %}
+
+{%block conteudo%}
+    {% if user.is_authenticated %}
+        <style>
+          * {
+            box-sizing: border-box;
+          }
+
+          .stretched-link::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: auto;
+            content: "";
+            background-color: rgba(0,0,0,0);
+          }
+        </style>
+        <body style="background-color: #f5f7fa">
+            <div class="container-fluid">
+                <h1 class="h3 mb-4 text-gray-800">Gerenciamento</h1>
+            </div>
+            <div class="container-fluid" align="center">
+              <section>
+                <div class="row">
+                  <div class="col-12 mt-3 mb-1">
+                  </div>
+                </div>
+                <div class="row" style="">
+                    <div class="col-xl-8 col-md-12" style="margin: 0 auto; margin-top: -10px">
+                      <div class="card mb-3">
+                        <div class="card-body">
+                          <div class="d-flex justify-content-between p-md-1">
+                            <div class="d-flex flex-row">
+                              <div class="align-self-center">
+                                  <i class="fas fa-pencil-alt text-info fa-3x me-4"></i>
+                              </div>
+                              <div style="text-align: left; margin-left: 20px">
+                                  <h1><i style="color:black;">Gerenciamento</i></h1>
+                                  <h1><i style="color:black;">de Alunos</i></h1>
+                              </div>
+                            </div>
+                          </div>
+                          <a href="/membros/admin/alunos" class="stretched-link"></a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="row" style="">
+                    <div class="col-xl-8 col-md-12" style="margin: 0 auto; margin-top: -10px">
+                        <div class="card mb-3">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between p-md-1">
+                              <div class="d-flex flex-row">
+                                <div class="align-self-center">
+                                  <i class="fas fa-pencil-alt text-info fa-3x me-4"></i>
+                                </div>
+                                <div style="text-align: left; margin-left: 20px">
+                                  <h1><i style="color:black;">Gerenciamento</i></h1>
+                                  <h1><i style="color:black;">de Monitores</i></h1>
+                                </div>
+                              </div>
+                            </div>
+                            <a href="/membros/admin/monitores" class="stretched-link"></a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="">
+                    <div class="col-xl-8 col-md-12" style="margin: 0 auto; margin-top: -10px">
+                        <div class="card mb-3">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between p-md-1">
+                              <div class="d-flex flex-row">
+                                <div class="align-self-center">
+                                  <i class="fas fa-pencil-alt text-info fa-3x me-4"></i>
+                                </div>
+                                <div style="text-align: left; margin-left: 20px">
+                                  <h1><i style="color:black;">Gerenciamento</i></h1>
+                                  <h1><i style="color:black;">de Tutores</i></h1>
+                                </div>
+                              </div>
+                            </div>
+                            <a href="/membros/admin/tutores" class="stretched-link"></a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="">
+                    <div class="col-xl-8 col-md-12" style="margin: 0 auto; margin-top: -10px">
+                        <div class="card mb-3">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between p-md-1">
+                              <div class="d-flex flex-row">
+                                <div class="align-self-center">
+                                  <i class="fas fa-pencil-alt text-info fa-3x me-4"></i>
+                                </div>
+                                <div style="text-align: left; margin-left: 20px">
+                                  <h1><i style="color:black;">Gerenciamento</i></h1>
+                                  <h1><i style="color:black;">de Interpretes</i></h1>
+                                </div>
+                              </div>
+                            </div>
+                            <a href="/membros/admin/interpretes" class="stretched-link"></a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="">
+                    <div class="col-xl-8 col-md-12" style="margin: 0 auto; margin-top: -10px">
+                        <div class="card mb-3">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between p-md-1">
+                              <div class="d-flex flex-row">
+                                <div class="align-self-center">
+                                  <i class="fas fa-pencil-alt text-info fa-3x me-4"></i>
+                                </div>
+                                <div style="text-align: left; margin-left: 20px">
+                                  <h1><i style="color:black;">Homologacao</i></h1>
+                                  <h1><i style="color:black;">de Cadastros</i></h1>
+                                </div>
+                              </div>
+                            </div>
+                            <a href="/membros/admin/homologar" class="stretched-link"></a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </section>
+            </div>
+        </body>
+    {% else %}
+        <p>Você não pode acessar essa página enquanto não estiver logado!</p>
+        <br>
+        <p>Para logar, <a style="color:black;" type="button" class="btn-link" href="{% url 'authLogin' %}">clique aqui!</a></p>
+    {% endif %}
+
+{%endblock%}

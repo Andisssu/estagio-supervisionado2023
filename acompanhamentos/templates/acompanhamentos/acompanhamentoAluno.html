@@ -1,0 +1,179 @@
+{% extends 'baseAluno.html' %}
+
+{%block opcoes%}
+{%endblock%}
+
+{%block conteudo%}
+<body style="background-color: #f5f7fa">
+    <div class="container-fluid">
+        <h1 class="h3 mb-4 text-gray-800">Meu acompanhamento</h1>
+    </div>
+    <br>
+    <div class="container-fluid" align="center">
+        <section>
+            <div class="card" style="border-color: blue; margin-top: -30px; margin-left: 200px; margin-right: 200px;">
+                <div class="card-header align-items-center bg-secondary text-white">
+                    <h3 class="card-title">Acompanhamento {{ acompanhamento }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="justify-content-between p-md-1">
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Início do acompanhamento:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ acompanhamento.aco_inicio }}</p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <h4>Fim do acompanhamento:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ acompanhamento.aco_fim }}</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Aluno:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ acompanhamento.aco_aluno_pcd }}</p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <h4>Telefone:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ acompanhamento.aco_aluno_pcd.alu_telefone }}</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Email institucional:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ acompanhamento.aco_aluno_pcd.alu_email_institucional }}</p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <h4>Curso:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ acompanhamento.aco_aluno_pcd.alu_curso }}</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Deficiências:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ acompanhamento.aco_aluno_pcd.alu_deficiencias }}</p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <h4>Período acadêmico:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ acompanhamento.aco_aluno_pcd.alu_periodo_academico }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if monitoria %}
+            <div class="card mt-5" style="border-color: blue; margin-top: 10px; margin-left: 200px; margin-right: 200px;">
+                <div class="card-header align-items-center bg-secondary text-white">
+                    <h3 class="card-title">Monitoria atual</h3>
+                </div>
+                <div class="card-body">
+                    <div class="justify-content-between p-md-1">
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Monitor atual:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitoria.AsMon_monitor }}</p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <h4>Telefone:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitoria.AsMon_monitor.mon_telefone }}</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Email institucional:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitoria.AsMon_monitor.mon_email_institucional }}</p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <h4>Curso:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitoria.AsMon_monitor.mon_curso}}</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Período acadêmico:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitoria.AsMon_monitor.mon_periodo_academico}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if tutoria %}
+            <div class="card mt-5" style="border-color: blue; margin-top: 10px; margin-left: 200px; margin-right: 200px;">
+                <div class="card-header align-items-center bg-secondary text-white">
+                    <h3 class="card-title">Tutoria atual</h3>
+                </div>
+                <div class="card-body">
+                    <div class="justify-content-between p-md-1">
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Tutor:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ tutoria.AsTut_tutor }}</p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <h4>Telefone:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ tutoria.AsTut_tutor.tut_telefone }}</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Email institucional:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ tutoria.AsTut_tutor.tut_email_institucional }}</p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <h4>Curso:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ tutoria.AsTut_tutor.tut_curso }}</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Período acadêmico:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ tutoria.AsTut_tutor.tut_periodo_academico }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if interpretacoes %}
+                <div class="card mt-5" style="border-color: blue; margin-top: 10px; margin-left: 200px; margin-right: 200px;">
+                    <div class="card-header align-items-center bg-secondary text-white">
+                        <h3 class="card-title">Interpretes atuais</h3>
+                    </div>
+                    {% for interpretacao in interpretacoes %}
+                    <div class="card-body" style="border-style: solid; border-color: blue; border-width: 1px; margin-left: -1px; margin-right: -1px">
+                        <div class="justify-content-between p-md-1">
+                            <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                                <div class="d-flex flex-row">
+                                    <h4>Interprete:</h4>
+                                    <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ interpretacao.AsInt_interprete }}</p>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <h4>Telefone:</h4>
+                                    <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ interpretacao.AsInt_interprete.int_telefone }}</p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                                <div class="d-flex flex-row">
+                                    <h4>Email institucional:</h4>
+                                    <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ interpretacao.AsInt_interprete.int_email_institucional }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </section>
+        <br>
+    </div>
+</body>
+
+{%endblock%}

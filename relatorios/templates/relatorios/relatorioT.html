@@ -1,0 +1,45 @@
+{% extends 'baseAvisos.html' %}
+
+{%block conteudo%}
+<body style="background-color: #f5f7fa">
+    <br>
+    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+      <div class="d-flex align-items-center">
+        <a class="btn btn-secondary" style="margin-right: 30px; margin-left: 30px;" href="/relatorios/T" role="button">Voltar</a>
+      </div>
+    </div>
+    <div class="container-fluid" align="center">
+        <section>
+            <div class="card" style="border-color: blue; margin-top: -30px; margin-left: 200px; margin-right: 200px;">
+                <div class="card-header align-items-center">
+                    <h3 class="card-title">{{ relatorioT.relT_titulo }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="justify-content-between p-md-1">
+                        <div class="d-flex flex-row justify-content-between" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Enviado por:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ relatorioT.relT_tutoria }}</p>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <h4>Data de envio:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ relatorioT.relT_data|date:'d/m/Y H:i:s' }}</p>
+                            </div>
+                        </div>
+                        <br>
+                        {% if relatorioT.relT_arquivo %}
+                        <div class="d-flex flex-row" style="text-align: left;">
+                            <div class="d-flex flex-row">
+                                <h4>Anexo:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 5px">{{ relatorioT.relT_arquivo }}</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+{%endblock%}

@@ -1,0 +1,51 @@
+{% extends 'baseInterprete.html' %}
+<html lang="pt">
+
+{%block opcoes%}
+    <a class="btn btn-primary text-white" href="{% url 'atualizarInterpretePerfil' user.id %}" role="button">Editar Perfil</a>
+{%endblock%}
+
+{%block conteudo%}
+    <div class="container">
+        <div class="card mt-5"
+             style="border-color: blue; margin-top: -30px; margin-left: 100px; margin-right: 100px;">
+            <div class="card-header align-items-center bg-secondary text-white" align="center">
+                <h3 class="card-title">Informações de Perfil</h3>
+            </div>
+            <div class="card-body" style="margin-left: 25px; margin-right: 25px;">
+                <div class="d-flex flex-row justify-content-between p-md-1">
+                    <div class="d-flex flex-row" style="text-align: left;">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Nome completo:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ interprete.int_nome }}</p>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <h4 style="margin-left: 5px; padding-top: 5px">CPF:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ interprete.int_cpf }}</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between p-md-1" style="text-align: left;">
+                    <div class="d-flex flex-row">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Email Pessoal:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ interprete.int_email_pessoal }}</p>
+                    </div>
+                    <div class="d-flex flex-row">
+
+                        <h4 style="margin-left: 5px; padding-top: 5px">Gênero:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ interprete.int_genero }}</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between p-md-1" style="text-align: left;">
+                    <div class="d-flex flex-row">
+                        <h4 class="" style="margin-left: 5px; padding-top: 5px">Email Institucional:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ interprete.int_email_institucional}}</p>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Contato:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ interprete.int_telefone }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+{%endblock%}

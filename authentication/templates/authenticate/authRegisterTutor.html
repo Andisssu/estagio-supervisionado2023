@@ -1,0 +1,171 @@
+{% extends 'baseRegistro.html' %}
+{% load crispy_forms_tags %}
+<style>
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+        top: 13px;
+    }
+</style>
+{%block conteudo%}
+  <body>
+          <div class="row justify-content-center align-items-center" style="min-width: 150%; margin-left: -25%">
+            <div class="col-12 col-lg-9 col-xl-7">
+                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" align="center">Cadastro de Tutor</h3>
+                  {% if user.is_authenticated %}
+                    {% if user.user_type == 1 %}
+                      <p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndex' %}">Retorne ao site aqui!</a></p>
+                    {% elif user.user_type == 2 %}
+                      <p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexAluno' %}">Retorne ao site aqui!</a></p>
+                    {% elif user.user_type == 3 %}
+                      <p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexMonitor' %}">Retorne ao site aqui!</a></p>
+                    {% elif user.user_type == 4 %}
+                      <p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexTutor' %}">Retorne ao site aqui!</a></p>
+                    {% elif user.user_type == 5 %}
+                      <p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexInterprete' %}">Retorne ao site aqui!</a></p>
+                    {% endif %}
+                    <br>
+                    <p>Para deslogar, <a style="color:black;" type="button" class="btn-link" href="{% url 'authLogout' %}">clique aqui!</a></p>
+                  {% else %}
+                    {% if form.errors %}
+                      <p>Ocorreu um erro na tentativa de carregar o formulário.</p>
+                    {% endif %}
+                    <form method="POST" action="">
+                      {% csrf_token %}
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+
+                          <div class="form-outline">
+                            {{ form.tut_nome|as_crispy_field}}
+                          </div>
+
+                        </div>
+                        <div class="col-md-6 mb-4">
+
+                          <div class="form-outline">
+                            {{ form.tut_cpf|as_crispy_field}}
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+
+                          <div class="form-outline">
+                            {{ form.tut_telefone|as_crispy_field}}
+                          </div>
+
+                        </div>
+                        <div class="col-md-6 mb-4">
+
+                          <div class="form-outline">
+                            {{ form.tut_genero|as_crispy_field}}
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            {{ form.tut_email_pessoal|as_crispy_field}}
+                          </div>
+
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            {{ form.tut_email_institucional|as_crispy_field}}
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            {{ form.tut_endereco_cep|as_crispy_field}}
+                          </div>
+
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            {{ form.tut_endereco_descricao|as_crispy_field}}
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            {{ form.tut_endereco_cidade|as_crispy_field}}
+                          </div>
+
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            {{ form.tut_matricula|as_crispy_field}}
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            {{ form.tut_curso|as_crispy_field}}
+                          </div>
+
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            {{ form.tut_periodo_academico|as_crispy_field}}
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            <input type="password" id="password1" name="senha" class="form-control form-control-lg" />
+                            <label class="form-label" for="password1">Senha</label>
+                          </div>
+
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline">
+                            <input type="password" id="password2" name="senha2" class="form-control form-control-lg" />
+                            <label class="form-label" for="password2">Confirme a senha</label>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="mt-4 pt-2" align="center">
+                        <input class="btn btn-primary btn-lg" type="submit" value="Salvar" />
+                      </div>
+
+                    </form>
+                  {% endif %}
+            </div>
+          </div>
+
+  </body>
+{%endblock%}

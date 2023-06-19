@@ -1,0 +1,99 @@
+{% extends 'baseMonitor.html' %}
+<html lang="pt">
+
+{%block opcoes%}
+    <a class="btn btn-primary text-white" href="{% url 'atualizarMonitor' monitor.mon_id %}" role="button">Editar Perfil</a>
+{%endblock%}
+
+{%block conteudo%}
+    <div class="container">
+        <div class="card mt-5"
+             style="border-color: blue; margin-top: -30px; margin-left: 100px; margin-right: 100px;">
+            <div class="card-header align-items-center bg-secondary text-white" align="center">
+                <h3 class="card-title">Informações Pessoais</h3>
+            </div>
+            <div class="card-body" style="margin-left: 25px; margin-right: 25px;">
+                <div class="d-flex flex-row justify-content-between p-md-1">
+                    <div class="d-flex flex-row" style="text-align: left;">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Nome completo:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_nome }}</p>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <h4 style="margin-left: 5px; padding-top: 5px">CPF:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_cpf }}</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between p-md-1" style="text-align: left;">
+                    <div class="d-flex flex-row">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Contato:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_telefone }}</p>
+                    </div>
+                    <div class="d-flex flex-row">
+
+                        <h4 style="margin-left: 5px; padding-top: 5px">Gênero:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_genero }}</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between p-md-1" style="text-align: left;">
+                    <div class="d-flex flex-row">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Email Pessoal:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_email_pessoal }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-5"
+             style="border-color: blue; margin-top: 10px; margin-left: 100px; margin-right: 100px;">
+            <div class="card-header align-items-center bg-secondary text-white" align="center">
+                <h3 class="card-title">Informações Institucionais</h3>
+            </div>
+            <div class="card-body" style="margin-left: 25px; margin-right: 25px;">
+                <div class="d-flex flex-row justify-content-between p-md-1">
+                    <div class="d-flex flex-row" style="text-align: left;">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Matrícula:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_matricula }}</p>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Curso:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_curso }}</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between p-md-1" style="text-align: left;">
+                    <div class="d-flex flex-row">
+                        <h4 class="" style="margin-left: 5px; padding-top: 5px">Email Institucional:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_email_institucional}}</p>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <h4 class="" style="margin-left: 5px; padding-top: 5px">Período acadêmico:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_periodo_academico }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-5"
+             style="border-color: blue; margin-top: 10px; margin-left: 100px; margin-right: 100px;">
+            <div class="card-header align-items-center bg-secondary text-white" align="center">
+                <h3 class="card-title">Endereço</h3>
+            </div>
+            <div class="card-body" style="margin-left: 25px; margin-right: 25px;">
+                <div class="d-flex flex-row justify-content-between p-md-1">
+                    <div class="d-flex flex-row" style="text-align: left;">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Descrição:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_endereco_descricao }}</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between p-md-1" style="text-align: left;">
+                    <div class="d-flex flex-row">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Cidade:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_endereco_cidade }}</p>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <h4 style="margin-left: 5px; padding-top: 5px">Cep:</h4>
+                        <p class="h5 mb-0" style="margin-left: 5px; padding-top: 5px">{{ monitor.mon_endereco_cep }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+{%endblock%}

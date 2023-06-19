@@ -1,0 +1,147 @@
+{% extends 'baseAdmin.html' %}
+
+{%block opcoes%}
+    <a class="btn btn-secondary" style="margin-right: 30px; margin-left: 30px;" href="/acompanhamentos/monitorias" role="button">Voltar</a>
+    {% if monitores %}
+        <a class="btn btn-primary" style="margin-right: 30px" href="/acompanhamentos/adicionarMonitoria" role="button">Iniciar monitoria</a>
+    {% else %}
+        <a class="btn btn-secondary disabled" style="margin-right: 30px" href="/acompanhamentos/adicionarMonitoria" role="button">Iniciar monitoria</a>
+    {% endif %}
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+          method="POST" action="{% url 'buscarMonitoria' %}">
+        <div class="input-group">
+            {% csrf_token %}
+            <input type="search" class="form-control bg-light border-0 small" placeholder="Busque monitorias aqui..."
+                   aria-label="Search" aria-describedby="basic-addon2" name="searched">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+{%endblock%}
+
+{%block conteudo%}
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Style the search field */
+  .searchbar input {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+
+  /* Style the submit button */
+  .searchbar button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+
+  .searchbar button:hover {
+    background: #0b7dda;
+  }
+
+  /* Clear floats */
+  .searchbar::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+</style>
+<body style="background-color: #f5f7fa">
+    <div class="container-fluid">
+        <h1 class="h3 mb-4 text-gray-800">Acompanhamento de Monitores</h1>
+    </div>
+    <div align="center">
+        {% if searched %}
+            <section>
+                <div class="container" style="margin-top:25px">
+                    <div class="row justify-content-center">
+                      <div class="col-12">
+                        <div class="card" style="border-color: blue">
+                          <div class="card-body p-0">
+                            <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: auto">
+                              <table class="table table-striped mb-0">
+                                <thead style="background-color: #4A6FDC;">
+                                  <tr class="text-white">
+                                    <th scope="col">Monitor</th>
+                                    <th scope="col">Acompanhamento</th>
+                                    <th scope="col">Data de Início</th>
+                                    <th scope="col">Data de Encerramento</th>
+                                    <th scope="col">Operações</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for monitoria in monitorias %}
+                                    <tr>
+                                      <td>{{ monitoria.AsMon_monitor }}</td>
+                                      <td>{{ monitoria.AsMon_acompanhamento }}</td>
+                                      <td>{{ monitoria.AsMon_inicio }}</td>
+                                      <td>{{ monitoria.AsMon_fim }}</td>
+                                      <td>
+                                        <a class="btn btn-secondary text-white " href="{% url 'atualizarMonitoria' monitoria.AsMon_id %}" role="button">
+                                          Editar
+                                        </a>
+                                        <!-- Button trigger modal -->
+                                        <a class="btn btn-danger text-white" data-toggle="modal" data-target="#deleteModal{{ monitoria.AsMon_id }}" role="button">
+                                          Excluir
+                                        </a>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="deleteModal{{ monitoria.AsMon_id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header text-white" style="background-color: #4A6FDC; margin-right: -0.5px">
+                                                <h5 class="modal-title" id="deleteModalLabel">Excluindo monitoria</h5>
+                                                <button style="color: #ffffff" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body">
+                                                Tem certeza que deseja excluir a monitoria de {{ monitoria.AsMon_monitor }} para o acompanhamento {{ monitoria.AsMon_acompanhamento }}?
+                                              </div>
+                                              <div class="modal-body" style="color: red;">
+                                                Esta ação é permanente.
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <a class="btn btn-danger text-white" href="{% url 'deletarMonitoria' monitoria.AsMon_id %}" role="button">
+                                                  Excluir
+                                                </a>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+            </section>
+        {% else %}
+            <h4>Nenhuma busca realizada! Primeiramente digite alguma parte do semestre, nome do monitor ou aluno acompanhado</h4>
+        {% endif %}
+    </div>
+</body>
+
+{%endblock%}

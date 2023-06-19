@@ -1,0 +1,41 @@
+{% extends 'baseRegistro.html' %}
+
+{% block conteudo %}
+  <style>
+    .disabled-link {
+      pointer-events: none;
+    }
+  </style>
+  <h1 class="mt-3 mb-3" align="center">Cadastro</h1>
+    {% if user.is_authenticated %}
+      {% if user.user_type == 1 %}
+          <p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndex' %}">Retorne ao site aqui!</a></p>
+      {% elif user.user_type == 2 %}
+          <p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexAluno' %}">Retorne ao site aqui!</a></p>
+      {% elif user.user_type == 3 %}
+          <p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexMonitor' %}">Retorne ao site aqui!</a></p>
+      {% elif user.user_type == 4 %}
+          <p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexTutor' %}">Retorne ao site aqui!</a></p>
+      {% elif user.user_type == 5 %}
+          <p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexInterprete' %}">Retorne ao site aqui!</a></p>
+      {% endif %}
+      <br>
+      <p>Para deslogar, <a style="color:black;" type="button" class="btn-link" href="{% url 'authLogout' %}">clique aqui!</a></p>
+    {% else %}
+      <div align="center">
+        <a class="btn btn-secondary" href="{% url 'authLogin' %}" role="button">Retornar à tela de login</a>
+      </div>
+      <br>
+      <H3 align="center">Selecione como deseja se cadastrar</H3>
+      <div style="margin-left: 150px; margin-right: 150px">
+        <div class="d-flex p-2 justify-content-evenly">
+          <a type="button" class="d-flex btn btn-primary align-items-center justify-content-center"
+             href="{% url 'authRegisterAluno' %}" style="height: 60px; width: 120px;">Sou aluno</a>
+          <a type="button" class="d-flex btn btn-primary align-items-center justify-content-center"
+             href="{% url 'authRegisterMonitor' %}" style="height: 60px; width: 120px;">Sou monitor</a>
+          <a type="button" class="d-flex btn btn-primary align-items-center justify-content-center"
+             href="{% url 'authRegisterTutor' %}" style="height: 60px; width: 120px;">Sou tutor</a>
+        </div>
+      </div>
+    {% endif %}
+{% endblock %}

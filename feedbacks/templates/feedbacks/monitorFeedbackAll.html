@@ -1,0 +1,109 @@
+{% extends 'baseMonitor.html' %}
+<html lang="pt">
+
+{%block opcoes%}
+    {% if acompanhamentos %}
+        <a class="btn btn-success" style="margin-right: 30px"href="{% url 'monitorFeedback' user.id %}" role="button">Iniciar Feedback</a>
+    {% else %}
+        <a class="btn btn-secondary disabled" style="margin-right: 30px"href="{% url 'monitorFeedback' user.id %}" role="button">Iniciar Feedback</a>
+    {% endif %}
+{%endblock%}
+
+{%block conteudo%}
+
+<div class="container-fluid" align="">
+    <section>
+        <div class="row">
+            <div class="col-12 mt-3 mb-1">
+                <h5 class="text-uppercase" align="center">Feedbacks Postados</h5>
+            </div>
+        </div>
+        {% if not acompanhamentos %}
+            <div class="alert alert-warning" role="alert">
+              Feedbacks não podem ser iniciados enquanto não houver um acompanhamento ativo.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+        {% endif %}
+        {% if feedback %}
+        {% for feedbacks in feedback %}
+        <div class="row" style="">
+            <div class="col-xl-8 col-md-12" style="margin: 0 auto; margin-top: 10px">
+                <div class="card mb-3">
+                    <div class="card-header bg-success text-white">
+                        <div class="d-flex justify-content-between">
+                            <div class="me-auto p-2 bd-highlight d-flex justify-content-between">
+                                <H3 class="">{{ feedbacks.fee_acompanhamento }}</H3>
+                            </div>
+                            <div class="me-auto p-2 bd-highlight d-flex justify-content-between">
+                                <H3 class="">Data: {{ feedbacks.fee_data|date:'d/m/Y H:i:s' }}</H3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h4 class="card-title">Tipo de Feedback: {{ feedbacks.fee_titulo }}</h4>
+                        <textarea class="form-control " rows="5" disabled>{{feedbacks.fee_descricao}}</textarea>
+                        {% if feedbacks.fee_arquivo %}
+                            <div class="row">
+                                <h4 style="margin-left: 15px; padding-top: 10px">Anexo:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 15px">
+                                    <a style="color:black;" type="button" class="btn-link"
+                                       href="{% url 'baixarFileFeedback' feedbacks.fee_arquivo %}">{{ feedbacks.fee_arquivo }}
+                                    </a>
+                                </p>
+                            </div>
+                        {% endif %}
+                        <div class="row">
+                            <h4 style="margin-left: 15px; padding-top: 10px">Emissor:</h4>
+                            <p class="mb-0" style="margin-left: 5px; padding-top: 15px">{{ feedbacks.fee_emissor.email }}</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="row">
+                                <h4 style="margin-left: 15px; padding-top: 10px">Código do feedback:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 15px">{{ feedbacks.fee_id }}</p>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <a url="/monitores/monitorOpenfeedback"
+                                   href="{% url 'monitorOpenfeedback' user.id feedbacks.fee_id %}"
+                                   class="btn btn-primary mt-3">Abrir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+            <div class="alert alert-info" role="alert">
+              Não Existe nenhuma mensagem de feedback no momento!
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="" style="margin: 0 auto; margin-top: 10px">
+                <div class="pagination" align="center">
+                    <ul class="pagination center">
+                        {% for pagina in feedback.paginator.page_range %}
+                        {% if feedback.number == pagina %}
+                        <li
+                                class="page-item active"><a class="page-link" href="?p={{ pagina }}">{{pagina}}</a>
+                        </li>
+                        {% else %}
+                        <li
+                                class="page-item"><a class="page-link" href="?p={{ pagina }}">{{pagina}}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+{%endblock%}

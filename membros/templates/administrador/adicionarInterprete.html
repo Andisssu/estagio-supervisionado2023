@@ -1,0 +1,118 @@
+{% extends 'baseAdmin.html' %}
+{% load crispy_forms_tags %}
+<html lang="pt">
+
+{%block opcoes%}
+    <a class="btn btn-secondary" style="margin-right: 30px; margin-left: 30px;" href="/membros/admin/interpretes" role="button">Voltar</a>
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+          method="POST" action="{% url 'buscarInterprete' %}">
+        <div class="input-group">
+            {% csrf_token %}
+            <input type="search" class="form-control bg-light border-0 small" placeholder="Busque interpretes aqui..."
+                   aria-label="Search" aria-describedby="basic-addon2" name="searched">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+{%endblock%}
+
+{%block conteudo%}
+<style>
+
+</style>
+<body style="background-color: #f5f7fa">
+    <div class="container-fluid">
+        <h1 class="h3 mb-4 text-gray-800">Gestão de Interpretes</h1>
+    </div>
+    <div style="margin-left: 250px; margin-right: 250px; margin-bottom:30px">
+        <h1 style="text-align: center;">Cadastre um novo interprete</h1>
+        <br>
+        {% if form.errors %}
+          <p>Ocorreu um erro na tentativa de carregar o formulário.</p>
+        {% endif %}
+        <form method="POST" action="">
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="col-md-6 mb-4">
+
+              <div class="form-outline">
+                {{ form.int_nome|as_crispy_field}}
+              </div>
+
+            </div>
+            <div class="col-md-6 mb-4">
+
+              <div class="form-outline">
+                {{ form.int_cpf|as_crispy_field}}
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4 d-flex align-items-center">
+
+              <div class="form-outline datepicker w-100">
+                {{ form.int_telefone|as_crispy_field}}
+              </div>
+
+            </div>
+            <div class="col-md-6 mb-4">
+
+              <div class="form-outline">
+                {{ form.int_genero|as_crispy_field}}
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4 pb-2">
+
+              <div class="form-outline">
+                {{ form.int_email_pessoal|as_crispy_field}}
+              </div>
+
+            </div>
+            <div class="col-md-6 mb-4 pb-2">
+
+              <div class="form-outline">
+                {{ form.int_email_institucional|as_crispy_field}}
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4 pb-2">
+
+              <div class="form-outline">
+                <input type="password" id="password1" name="senha" class="form-control form-control-lg" />
+                <label class="form-label" for="password1">Senha</label>
+              </div>
+
+            </div>
+            <div class="col-md-6 mb-4 pb-2">
+
+              <div class="form-outline">
+                <input type="password" id="password2" name="senha2" class="form-control form-control-lg" />
+                <label class="form-label" for="password2">Confirme a senha</label>
+              </div>
+
+            </div>
+          </div>
+
+          <div align="center" style="margin-top: -15px">
+            <input class="btn btn-primary btn-lg" type="submit" value="Salvar" />
+          </div>
+
+        </form>
+    </div>
+
+</body>
+
+{%endblock%}

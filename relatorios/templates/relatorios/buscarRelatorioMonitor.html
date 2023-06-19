@@ -1,0 +1,176 @@
+{% extends 'baseMonitor.html' %}
+
+{%block opcoes%}
+    <a class="btn btn-secondary" style="margin-right: 30px; margin-left: 30px;" href="{% url 'relMIndexMonitor' user.id %}" role="button">Voltar</a>
+    <a class="btn btn-primary" style="margin-right: 30px" href="/relatorios/adicionarRelatorioMonitor" role="button">Enviar relatório</a>
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+          method="POST" action="{% url 'buscarRelatorioMonitor' user.id %}">
+        <div class="input-group">
+            {% csrf_token %}
+            <input type="search" class="form-control bg-light border-0 small" placeholder="Busque relatórios aqui..."
+                   aria-label="Search" aria-describedby="basic-addon2" name="searched">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+{%endblock%}
+
+{%block conteudo%}
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Style the search field */
+      .searchbar input {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+      }
+
+      /* Style the submit button */
+      .searchbar button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none; /* Prevent double borders */
+        cursor: pointer;
+      }
+
+      .searchbar button:hover {
+        background: #0b7dda;
+      }
+
+      /* Clear floats */
+      .searchbar::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      .stretched-link {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: auto;
+        content: "";
+        background-color: rgba(0,0,0,0);
+      }
+
+      .pagination.center,
+      .pagination.center ul {
+          float: left;
+          position: relative;
+      }
+      .pagination.center { left: 50%; }
+      .pagination.center ul { left: -50%; }
+    </style>
+    <body style="background-color: #f5f7fa">
+        <div class="container-fluid">
+            <h1 class="h3 mb-4 text-gray-800">Relatórios de Monitoria</h1>
+        </div>
+        <section>
+            {% if searched %}
+                <div class="col-12 mt-3 mb-1" align="center">
+                    <h4>Buscando por "{{ searched }}"</h4>
+                </div>
+                <div class="container" style="margin-top:25px">
+                    <div class="row justify-content-center">
+                      <div class="col-12">
+                        <div class="card" style="border-color: blue">
+                          <div class="card-body p-0">
+                            <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: auto">
+                              <table class="table table-striped mb-0">
+                                <thead style="background-color: #4A6FDC;">
+                                  <tr class="text-white">
+                                    <th scope="col">Título</th>
+                                    <th scope="col">Monitoria</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Arquivo</th>
+                                    <th scope="col">Operações</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for relatorioM in relatoriosM %}
+                                    <tr>
+                                      <td>{{ relatorioM.relM_titulo }}</td>
+                                      <td>{{ relatorioM.relM_monitoria }}</td>
+                                      <td>{{ relatorioM.relM_data|date:'d/m/Y H:i:s' }}</td>
+                                      <td>
+                                          {% if relatorioM.relM_verificado == True %}
+                                              Verificado
+                                          {% else %}
+                                              Pendente
+                                          {% endif %}
+                                      </td>
+                                      <td>
+                                          {% if relatorioM.relM_arquivo %}
+                                            <a style="color:black;" type="button" class="btn-link" href="{% url 'baixarFileRelatorio' relatorioM.relM_arquivo %}">{{ relatorioM.relM_arquivo }}</a>
+                                          {% else %}
+                                            <p class="mb-0">Não há arquivo</p>
+                                          {% endif %}
+                                      </td>
+                                      <td>
+                                        {% if relatorioM.relM_verificado == True %}
+                                            <a class="btn btn-primary text-white " href="{% url 'ajudaVerificadoM' %}" role="button">Ajuda</a>
+                                        {% else %}
+                                            <a class="btn btn-secondary text-white " href="{% url 'atualizarRelatorioMonitor' relatorioM.relM_id %}" role="button">Editar</a>
+                                            <!-- Button trigger modal -->
+                                            <a class="btn btn-danger text-white" data-toggle="modal" data-target="#deleteModal{{ relatorioM.relM_id }}" role="button">
+                                              Excluir
+                                            </a>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="deleteModal{{ relatorioM.relM_id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                  <div class="modal-header text-white" style="background-color: #4A6FDC; margin-right: -0.5px">
+                                                    <h5 class="modal-title" id="deleteModalLabel">Excluindo relatório</h5>
+                                                    <button style="color: #ffffff" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    Tem certeza que deseja excluir {{ relatorioM.relM_titulo }}?
+                                                  </div>
+                                                  <div class="modal-body" style="color: red;">
+                                                    Esta ação é permanente.
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                    <a class="btn btn-danger text-white" href="{% url 'deletarRelatorioMonitor' relatorioM.relM_id %}" role="button">
+                                                        Excluir
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        {% endif %}
+                                      </td>
+                                    </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            {% else %}
+                <div align="center">
+                    <h4>Nenhuma busca realizada! Primeiramente digite alguma parte do título do relatório</h4>
+                </div>
+            {% endif %}
+        </section>
+    </body>
+{%endblock%}

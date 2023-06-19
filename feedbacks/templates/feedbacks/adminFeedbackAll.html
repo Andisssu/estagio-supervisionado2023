@@ -1,0 +1,128 @@
+{% extends 'baseAdmin.html' %}
+<html lang="pt">
+
+{%block opcoes%}
+{%endblock%}
+
+{%block conteudo%}
+
+<div class="container-fluid" align="">
+    <section>
+        <div class="row">
+            <div class="col-12 mt-3 mb-1">
+                <h5 class="text-uppercase" align="center">Feedbacks Postados</h5>
+            </div>
+        </div>
+        {% if feedback %}
+        {% for feedbacks in feedback %}
+        <div class="row" style="">
+            <div class="col-xl-8 col-md-12" style="margin: 0 auto; margin-top: 10px">
+                <div class="card mb-3">
+                    <div class="card-header bg-success text-white">
+                        <div class="d-flex justify-content-between">
+                            <div class="me-auto p-2 bd-highlight d-flex justify-content-between">
+                                <H3 class="">{{ feedbacks.fee_acompanhamento }}</H3>
+                            </div>
+                            <div class="me-auto p-2 bd-highlight d-flex justify-content-between">
+                                <H3 class="">Data: {{ feedbacks.fee_data|date:'d/m/Y H:i:s' }}</H3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h4 class="card-title">Tipo de Feedback: {{ feedbacks.fee_titulo }}</h4>
+                        <textarea class="form-control " rows="5" disabled>{{feedbacks.fee_descricao}}</textarea>
+                        {% if feedbacks.fee_arquivo %}
+                            <div class="row">
+                                <h4 style="margin-left: 15px; padding-top: 10px">Anexo:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 15px">
+                                    <a style="color:black;" type="button" class="btn-link"
+                                       href="{% url 'baixarFileFeedback' feedbacks.fee_arquivo %}">{{ feedbacks.fee_arquivo }}
+                                    </a>
+                                </p>
+                            </div>
+                        {% endif %}
+                        <div class="row">
+                            <h4 style="margin-left: 15px; padding-top: 10px">Emissor:</h4>
+                            <p class="mb-0" style="margin-left: 5px; padding-top: 15px">{{ feedbacks.fee_emissor.email }}</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="row">
+                                <h4 style="margin-left: 15px; padding-top: 10px">Código do feedback:</h4>
+                                <p class="mb-0" style="margin-left: 5px; padding-top: 15px">{{ feedbacks.fee_id }}</p>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a url="/admins/adminOpenfeedback"
+                                   href="{% url 'adminOpenfeedback' feedbacks.fee_id %}"
+                                   class="btn btn-primary mt-3">Abrir</a>
+                                <a class="btn btn-danger mt-3" data-toggle="modal" data-target="#deleteModal{{ feedbacks.fee_id }}" role="button">
+                                   <div class="d-flex align-items-center">Excluir</div>
+                                </a>
+
+                                  <!-- Modal -->
+                                <div class="modal fade" id="deleteModal{{ feedbacks.fee_id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content" align="left">
+                                        <div class="modal-header text-white" style="background-color: #4A6FDC; margin-right: -0.5px">
+                                          <h5 class="modal-title" id="deleteModalLabel">Excluindo lista de feedback</h5>
+                                          <button style="color: #ffffff" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Ao confirmar essa opção, o feedback selecionado e todas as suas respostas vão ser deletadas!
+                                        </div>
+                                        <div class="modal-body">
+                                            Tem certeza que deseja excluir a lista do feedback {{ feedbacks.fee_id }}?
+                                        </div>
+                                        <div class="modal-body" style="color: red;">
+                                            Esta ação é permanente.
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                          <a class="btn btn-danger text-white" href="{% url 'adminDeletarFeedback' feedbacks.fee_id %}" role="button">
+                                              Excluir
+                                          </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+            <div class="alert alert-info" role="alert">
+              Não Existe nenhuma mensagem de feedback no momento!
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="" style="margin: 0 auto; margin-top: 10px">
+                <div class="pagination" align="center">
+                    <ul class="pagination center">
+                        {% for pagina in feedback.paginator.page_range %}
+                        {% if feedback.number == pagina %}
+                        <li
+                                class="page-item active"><a class="page-link" href="?p={{ pagina }}">{{pagina}}</a>
+                        </li>
+                        {% else %}
+                        <li
+                                class="page-item"><a class="page-link" href="?p={{ pagina }}">{{pagina}}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+{%endblock%}

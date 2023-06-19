@@ -1,0 +1,130 @@
+{% extends 'baseAluno.html' %}
+
+{%block opcoes%}
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+          method="POST" action="{% url 'buscarDisciplinaAluno' user.id %}">
+        <div class="input-group">
+            {% csrf_token %}
+            <input type="search" class="form-control bg-light border-0 small" placeholder="Busque disciplinas aqui..."
+                   aria-label="Search" aria-describedby="basic-addon2" name="searched">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+{%endblock%}
+
+{%block conteudo%}
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Style the search field */
+  .searchbar input {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+
+  /* Style the submit button */
+  .searchbar button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+
+  .searchbar button:hover {
+    background: #0b7dda;
+  }
+
+  /* Clear floats */
+  .searchbar::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .stretched-link {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+    background-color: rgba(0,0,0,0);
+  }
+
+  .pagination.center,
+  .pagination.center ul {
+      float: left;
+      position: relative;
+  }
+  .pagination.center { left: 50%; }
+  .pagination.center ul { left: -50%; }
+</style>
+<body style="background-color: #f5f7fa">
+    <div class="container-fluid">
+        <h1 class="h3 mb-4 text-gray-800">Minhas Disciplinas</h1>
+    </div>
+    <section>
+        <div class="container" style="margin-top:25px">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="card" style="border-color: blue">
+                  <div class="card-body p-0">
+                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: auto">
+                      <table class="table table-striped mb-0">
+                        <thead style="background-color: #4A6FDC;">
+                          <tr class="text-white">
+                            <th scope="col">Disciplina</th>
+                            <th scope="col">Curso</th>
+                            <th scope="col">Carga Horária</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for disciplina in disciplinas %}
+                            <tr>
+                              <td>{{ disciplina.AsDis_disciplina.dis_nome }}</td>
+                              <td>{{ disciplina.AsDis_disciplina.dis_curso }}</td>
+                              <td>{{ disciplina.AsDis_disciplina.dis_carga_horaria }} Horas</td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </section>
+    <br>
+    <div class="pagination center">
+      <ul class="pagination center">
+        {% for pagina in disciplinas.paginator.page_range %}
+          {% if disciplinas.number == pagina %}
+            <li class="page-item active">
+              <a class="page-link" href="?p={{ pagina }}">{{pagina}}</a>
+            </li>
+          {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?p={{ pagina }}">{{pagina}}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+</body>
+
+{%endblock%}

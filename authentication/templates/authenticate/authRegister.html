@@ -1,0 +1,195 @@
+{% extends 'baseRegistro.html' %}
+<style>
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+        top: 13px;
+    }
+</style>
+{%block conteudo%}
+  <body>
+          <div class="row justify-content-center align-items-center" style="min-width: 150%; margin-left: -25%">
+            <div class="col-12 col-lg-9 col-xl-7">
+                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Formulário de Registro</h3>
+                  {% if form.errors %}
+                    <p>Ocorreu um erro na tentativa de carregar o formulário.</p>
+                  {% endif %}
+                  <form method="POST" action="">
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+
+                        <div class="form-outline">
+                          <input type="text" id="fullName" class="form-control form-control-lg" />
+                          <label class="form-label" for="fullName">Nome Completo</label>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6 mb-4">
+
+                        <div class="form-outline">
+                          <input type="text" id="CPF" name="username" class="form-control form-control-lg" />
+                          <label class="form-label" for="CPF">CPF</label>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                        <div class="form-outline datepicker w-100">
+                          <input type="text" class="form-control form-control-lg" id="birthDate" />
+                          <label for="birthDate" class="form-label">Data de Nascimento</label>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6 mb-4">
+
+                        <h6 class="mb-2 pb-1">Gênero: </h6>
+
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="generoFeminino"
+                            value="option1" />
+                          <label class="form-check-label" for="generoFeminino">Feminino</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="generoMasculino"
+                            value="option2" />
+                          <label class="form-check-label" for="generoMasculino">Masculino</label>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="email" id="emailPessoal" class="form-control form-control-lg" />
+                          <label class="form-label" for="emailPessoal">Email Pessoal</label>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="email" id="emailInstitucional" class="form-control form-control-lg" />
+                          <label class="form-label" for="emailInstitucional">Email Institucional</label>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="email" id="numeroTelefone" class="form-control form-control-lg" />
+                          <label class="form-label" for="numeroTelefone">Telefone</label>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="email" id="enderecoCEP" class="form-control form-control-lg" />
+                          <label class="form-label" for="enderecoCEP">CEP</label>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="email" id="enderecoDesc" class="form-control form-control-lg" />
+                          <label class="form-label" for="enderecoDesc">Endereço</label>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="email" id="enderecoCidade" class="form-control form-control-lg" />
+                          <label class="form-label" for="enderecoCidade">Cidade</label>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="email" id="matriculaAluno" class="form-control form-control-lg" />
+                          <label class="form-label" for="matriculaAluno">Matrícula</label>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="email" id="cursoAluno" class="form-control form-control-lg" />
+                          <label class="form-label" for="cursoAluno">Curso</label>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="email" id="periodoAcademico" class="form-control form-control-lg" />
+                          <label class="form-label" for="periodoAcademico">Período acadêmico</label>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="email" id="deficiencias" class="form-control form-control-lg" />
+                          <label class="form-label" for="deficiencias">Deficiências</label>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="password" id="password1" name="password1" class="form-control form-control-lg" />
+                          <label class="form-label" for="password1">Senha</label>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+
+                        <div class="form-outline">
+                          <input type="password" id="password2" name="password2" class="form-control form-control-lg" />
+                          <label class="form-label" for="password2">Confirme a senha</label>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="mt-4 pt-2" align="center">
+                      <input class="btn btn-primary btn-lg" type="submit" value="Salvar" />
+                    </div>
+
+                  </form>
+            </div>
+          </div>
+
+  </body>
+{%endblock%}

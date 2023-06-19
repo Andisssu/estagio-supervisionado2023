@@ -1,0 +1,74 @@
+{% load static %}
+
+<style>
+  .topnav {
+    background-color: #DCEEFF;
+    overflow: hidden;
+    height: 150px;
+  }
+
+  .bottomnav {
+    padding: 5px;
+    background-color: #E5E5E5;
+    height: 50px;
+  }
+  #wrapper {
+    width: cover;
+    margin: 0 auto;
+  }
+  #leftcolumn, #rightcolumn {
+    float: left;
+    height: 150px;
+    color: white;
+  }
+  #leftcolumn {
+    width: 20%;
+    min-height: 150px;
+    background-color: #111;
+  }
+  #rightcolumn {
+    width: 80%;
+    min-height: 200px;
+    background-color: #777;
+  }
+
+  .bg-img {
+    /* The image used */
+    background-image: url("/static/horizontal-banner-document.jpg");
+
+    min-height: 250px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Needed to position the navbar */
+    position: relative;
+  }
+</style>
+<body>
+  <div class="topnav">
+    <div id="wrapper">
+        <div id="leftcolumn" align="center">
+            <img src="{% static 'Ufac-brasao.png' %}" alt="" width="30%" height="60%">
+            <h1 style="">Sistema Estágio</h1>
+        </div>
+        <div id="rightcolumn">
+            <nav class="bg-img">
+              <h1><i style="color:black; font-size: 150%; margin-left: 10px;">Visualização</i></h1>
+                <h1><i style="color:black; font-size: 150%; margin-left: 10px;">de Avisos</i></h1>
+            </nav>
+        </div>
+    </div>
+  </div>
+</body>
+<!--  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">-->
+<!--    <div class="container">-->
+<!--      <a class="navbar-brand" href="{% url 'index' %}">Agenda</a>-->
+<!--      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"-->
+<!--        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </nav>-->

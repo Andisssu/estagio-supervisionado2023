@@ -1,0 +1,74 @@
+{% load static %}
+
+<style>
+    .topnav {
+      background-color: #DCEEFF;
+      overflow: hidden;
+      height: 150px;
+    }
+    .bottomnav {
+      padding: 5px;
+      background-color: #E5E5E5;
+      height: 50px;
+    }
+    #wrapper {
+      width: cover;
+      margin: 0 auto;
+    }
+    #leftcolumn, #rightcolumn {
+      float: left;
+      height: 150px;
+      color: white;
+    }
+    #leftcolumn {
+      width: 20%;
+      min-height: 150px;
+      background-color: #111;
+    }
+    #rightcolumn {
+      width: 80%;
+      min-height: 200px;
+      background-color: #777;
+    }
+
+    .bg-img {
+      /* The image used */
+      background-image: url("/static/horizontal-banner-document.jpg");
+
+      min-height: 250px;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      /* Needed to position the navbar */
+      position: relative;
+    }
+</style>
+
+<body>
+    <div class="topnav">
+        <div id="wrapper">
+            <div id="leftcolumn" align="center">
+                <img src="{% static 'Ufac-brasao.png' %}" alt="" width="30%" height="60%">
+                <h1 style="">Sistema Estágio</h1>
+            </div>
+            <div id="rightcolumn">
+                <nav class="bg-img">
+                    <h1><i style="color:black; font-size: 150%; margin-left: 10px;">Gerenciamento</i></h1>
+                    <h1><i style="color:black; font-size: 150%; margin-left: 10px;">de Perfil</i></h1>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="bottomnav">
+        <div id-="wrapper" class="nav nav-pills flex-column flex-sm-row">
+            <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="/monitor_tutor">Perfil</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/avisos">Avisos</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/sistema/404">Feedback</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/sistema/404">Relatórios</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="/sistema/404">Ajuda</a>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,25 @@
+{% extends 'baseAdmin.html' %}
+<html lang="pt">
+
+{%block opcoes%}
+    <a class="btn btn-secondary" style="margin-right: 30px" href="{% url 'adminFeedbackAll' %}" role="button">Voltar</a>
+{%endblock%}
+
+{%block conteudo%}
+<div style=" margin-right: 150px; margin-left: 150px; margin-top: 50px">
+    <h1 style="text-align: center;">Formulário de resposta do Feedback</h1>
+    {% if submitted %}
+    Feedback enviado com sucesso!
+    {% else %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div style=" float: left; position: relative; left: 50%;">
+            <input style="margin-bottom: 50px; float: left; position: relative; left: -50%;"
+                   class="btn btn-primary" type="submit" value="Enviar">
+        </div>
+    </form>
+    {% endif %}
+</div>
+
+{%endblock%}

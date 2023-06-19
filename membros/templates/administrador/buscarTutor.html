@@ -1,0 +1,144 @@
+{% extends 'baseAdmin.html' %}
+
+{%block opcoes%}
+    <a class="btn btn-secondary" style="margin-right: 30px; margin-left: 30px;" href="/membros/admin/tutores" role="button">Voltar</a>
+    <a class="btn btn-primary" style="margin-right: 30px" href="/membros/admin/adicionarTutor" role="button">Criar tutor</a>
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+          method="POST" action="{% url 'buscarTutor' %}">
+        <div class="input-group">
+            {% csrf_token %}
+            <input type="search" class="form-control bg-light border-0 small" placeholder="Busque tutores aqui..."
+                   aria-label="Search" aria-describedby="basic-addon2" name="searched">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+{%endblock%}
+
+{%block conteudo%}
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Style the search field */
+  .searchbar input {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+
+  /* Style the submit button */
+  .searchbar button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+
+  .searchbar button:hover {
+    background: #0b7dda;
+  }
+
+  /* Clear floats */
+  .searchbar::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+</style>
+<body>
+    <div class="container-fluid">
+        <h1 class="h3 mb-4 text-gray-800">Gestao de Tutores</h1>
+    </div>
+    <div align="center">
+      {% if searched %}
+        <section>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="card" style="border-color: blue">
+                  <div class="card-body p-0">
+                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: auto">
+                      <table class="table table-striped mb-0">
+                        <thead style="background-color: #4A6FDC;">
+                          <tr class="text-white">
+                            <th scope="col">Nome</th>
+                            <th scope="col">Curso</th>
+                            <th scope="col">Email Institucional</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Operacoes</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for tutor in tutores %}
+                            <tr>
+                              <td>
+                                <a href="{% url 'admTutor' tutor.tut_id %}">{{ tutor.tut_nome }}</a>
+                              </td>
+                              <td>{{ tutor.tut_cur }}</td>
+                              <td>{{ tutor.tut_email_institucional }}</td>
+                              <td>{{ tutor.tut_telefone }}</td>
+                              <td>{{ tutor.tut_cpf }}</td>
+                              <td>
+                                <a class="btn btn-secondary text-white" href="{% url 'atualizarTutor' tutor.tut_id %}" role="button">Editar</a>
+                                <<!-- Button trigger modal -->
+                                <a class="btn btn-danger text-white" data-toggle="modal" data-target="#deleteModal{{ tutor.tut_id }}" role="button">
+                                  Excluir
+                                </a>
+                                <!-- Modal -->
+                                <div class="modal fade" id="deleteModal{{ tutor.tut_id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header text-white" style="background-color: #4A6FDC; margin-right: -0.5px">
+                                        <h5 class="modal-title" id="deleteModalLabel">Excluindo tutor</h5>
+                                        <button style="color: #ffffff" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Tem certeza que deseja excluir o tutor {{ tutor.tut_nome }}?
+                                      </div>
+                                      <div class="modal-body" style="color: red;">
+                                        Esta ação é permanente.
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        <a class="btn btn-danger text-white" href="{% url 'deletarTutor' tutor.tut_id %}" role="button">
+                                          Excluir
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      {% else %}
+        <h4>Nenhuma busca realizada! Primeiramente digite alguma parte do nome do tutor, nome do seu curso ou seu endereço de email.</h4>
+      {% endif %}
+    </div>
+</body>
+
+{%endblock%}
