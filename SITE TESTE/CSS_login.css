@@ -1,0 +1,186 @@
+body {
+  background: #e2e2e2;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url("imagens/blob-scene-haikei.png");
+  background-size: cover;
+}
+
+.rectangle-10 {
+  background: #b4c4ff;
+  border-radius: 17px;
+  width: 1000px;
+  height: 480px;
+  position: absolute;
+  left: 182px;
+  top: 68px;
+  box-shadow: 10px 11px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.rectangle-3 {
+  background: #ffffff;
+  border-radius: 17px 17px 17px 17px;
+  width: 500px;
+  height: 468px;
+  position: absolute;
+  left: 190px;
+  top: 73px;
+}
+
+.recuperar-senha {
+  color: #0140bb;
+  text-align: left;
+  font: 400 10px "Inter", sans-serif;
+  position: absolute;
+  left: 235px;
+  top: 510px;
+}
+
+.logo-ufac {
+  width: 320px;
+  height: 422px;
+  position: absolute;
+  left: 780px;
+  top: 85px;
+}
+
+.logo-nai {
+  width: 135px;
+  height: 130px;
+  position: absolute;
+  left: 360px;
+  top: 80px;
+}
+
+.rodape {
+  color: #000000;
+  text-align: center;
+  font: 400 12px "Inter", sans-serif;
+  position: absolute;
+  left: 410px;
+  top: 585px;
+  width: 492px;
+  height: 33px;
+}
+
+
+/*_______________________________________________________FORMULARIO______________________________________________________*/
+
+.input-user {
+  color: #000000;
+  font-size: 0.9rem;
+  background-color: #dee4f8;
+  width: 80%;
+  height: 35px;
+  box-sizing: border-box;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  border-bottom: var(--border-height) solid var(--border-before-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 40%;
+  margin-left: 8%;
+}
+
+.input-pass {
+  color: #000000;
+  font-size: 0.9rem;
+  background-color: #dee4f8;
+  width: 80%;
+  height: 35px;
+  box-sizing: border-box;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  border-bottom: var(--border-height) solid var(--border-before-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 5%;
+  margin-left: 8%;
+}
+
+.input-border {
+  position: absolute;
+  background: var(--border-after-color);
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 8%;
+  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.input-user,
+.input-pass:focus {
+  outline: none;
+}
+
+.input-user:focus+.input-border,
+.input-pass:focus+.input-border {
+  width: 100%;
+}
+
+.id-user,
+.id-pass {
+  position: relative;
+  --width-of-input: 300px;
+}
+
+.input-user,
+.input-pass {
+  font-size: 0.8rem;
+  padding-inline: 1em;
+  padding-block: 0.8em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-border-alt {
+  height: 3px;
+  background: linear-gradient(90deg, #FF6464 0%, #FFBF59 50%, #47C9FF 100%);
+  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1.00);
+}
+
+.input-user:focus+.input-border-alt,
+.input-pass:focus+.input-border-alt {
+  width: 80%;
+}
+
+/* BOTÃO DO FORMULARIO */
+
+.butt-entar {
+  color: #ffffff;
+  width: fit-content;
+  min-width: 100px;
+  height: 35px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 20px -20px;
+  cursor: pointer;
+  background-color: #6ca4f7;
+  transition: all 0.2s ease-in-out 0ms;
+  user-select: none;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 7%;
+  margin-left: 68%;
+}
+
+.butt-entar:hover {
+  color: #000000;
+  background-color: #81fa71;
+  box-shadow: 0px 0px 20px -18px;
+}
+
+.butt-entar:active {
+  transform: scale(0.95);
+}
+
+#cursorPersonalizado {
+  position: fixed;
+  width: 16px; /* Tamanho inicial da imagem do cursor */
+  height: 16px; /* Tamanho inicial da imagem do cursor */
+  pointer-events: none; /* Impede que a imagem do cursor seja clicada */
+  z-index: 9999; /* Define a sobreposição para garantir que o cursor esteja sempre visível */
+}
+
