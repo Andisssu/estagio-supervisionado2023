@@ -1,1 +1,1 @@
-# estagio-supervisionado2023
+# Repositório da disciplina Estagio Supervisionado
