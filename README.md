@@ -19,7 +19,7 @@ Use o seguinte comando para instalar o Django usando o pip:
 ### Ativar o ambiente virtual
 - Para ativar o ambiente virtual, use o seguinte comando:
 - myenv\Scripts\activate
-- 
+  
 ### Criar e Executar um Projeto Django
 - Criar um novo projeto Django
 - Para iniciar um novo projeto Django, execute o seguinte comando:
