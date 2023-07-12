@@ -1,84 +1,97 @@
 <!DOCTYPE html>
 <html>
-        <head><meta charset="utf-8"></head><head></head><body><header>
-        <title>Sidebar</title>
-        <link rel="stylesheet" href="style-pg-inicial.css">
-        <script async="" src="https://basicons.xyz/embed.js"> </script>
-    </header>
-    
-        <nav class="sidebar">
-          
-            <div class="sidebar-top">
-              <span class="expand-btn">
-                <img src="assets/chevron.svg" alt="Chevron">
-              </span>
-              <img src="imagens/Logo-ufac.png" class="logo" alt="NAI">
-              <h3 class="hide">Nicleo de Apoio a Inclusão - NAI</h3>
+
+<head>
+  <meta charset="utf-8">
+  <title>Sidebar</title>
+  <link rel="stylesheet" href="style-pg-inicial.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <nav class="sidebar">
+
+      <div class="sidebar-top">
+        <span class="expand-btn">
+          <img src="assets/chevron.svg" alt="Chevron">
+        </span>
+        <img src="imagens/Logo-ufac.png" class="logo" alt="NAI">
+        <h3 class="hide">Nicleo de Apoio a Inclusão - NAI</h3>
+      </div>
+
+      <div class="sidebar-links">
+        <ul>
+
+          <li class="dropdown tabela">
+            <a href="#portfolio" class="active" title="Portfolio link">
+              <div class="icon">
+                <img src="assets/avisos.svg" title="Portfolio Icon">
+              </div>
+              <span class="link hide">Avisos</span>
+            </a>
+            <div class="dropdown-content">
+              <a href="#admin">Administradores</a>
+              <a href="#alunos">Alunos</a>
+              <a href="#monitores">Monitores</a>
+              <a href="#tutores">Tutores</a>
+              <a href="#interpretes">Intérpretes</a>
+
+              <a href="#usuarios_ativos">Usuários Ativos</a>
+              <a href="#usuarios_inativos">Usuários Inativos</a>
             </div>
+          </li>
 
-            <div class="sidebar-links">
-              <ul>
 
-                <li class="dropdown">
-                  <a href="#portfolio" class="active" title="Portfolio link">
-                    <div class="icon">
-                      <img src="assets/avisos.svg" title="Portfolio Icon">
-                    </div>
-                    <span class="link hide">Avisos</span>
-                  </a>
-                  <div class="dropdown-content">
-                    <a href="#">Administradores</a>
-                    <a href="#">Alunos</a>
-                    <a href="#">Monitores</a>
-                    <a href="#">Tutores</a>
-                    <a href="#">Intérpretes</a>
-                    <a href="#" class="unclickable">Homologação</a>
-                    <a href="#">Usuários Ativos</a>
-                    <a href="#">Usuários Inativos</a>
-                  </div>
-                </li>
-                
+          <li class="tabela">
+            <a href="#analytics" title="Analytics link">
+              <div class="icon">
+                <img src="assets/user.svg" title="Analytics Icon">
+              </div>
+              <span class="link hide">Usuarios</span>
+            </a>
+          </li>
 
-                <li>
-                  <a href="#analytics" title="Analytics link">
-                    <div class="icon">
-                        <img src="assets/user.svg" title="Analytics Icon">
-                    </div>
-                    <span class="link hide">Usuarios</span>
-                  </a>
-                </li>
+          <li class="tabela">
+            <a href="#dashboard" title="Performance link">
+              <div class="icon">
+                <img src="assets/acompanhamento.svg" title="Performance Icon">
+              </div>
+              <span class="link hide">Acompanhamentos</span>
+            </a>
+          </li>
 
-                <li>
-                  <a href="#dashboard" title="Performance link">
-                    <div class="icon">
-                        <img src="assets/acompanhamento.svg" title="Performance Icon">
-                    </div>
-                    <span class="link hide">Acompanhamentos</span>
-                  </a>
-                </li>
+          <li class="tabela">
+            <a href="#reports" title="Reports Link">
+              <div class="icon">
+                <img src="assets/relatorios.svg" title="Performance Icon">
+              </div>
+              <span class="link hide">Relatorios</span>
+            </a>
+          </li>
 
-                <li>
-                  <a href="#reports" title="Reports Link">
-                    <div class="icon">
-                      <img src="assets/relatorios.svg" title="Performance Icon">
-                    </div>
-                    <span class="link hide">Relatorios</span>
-                  </a>
-                </li>
+          <li class="tabela">
+            <a href="#feedback" title="Reports Link">
+              <div class="icon">
+                <img src="assets/feedback.svg" title="Reports Icon">
+              </div>
+              <span class="link hide">Feedback</span>
+            </a>
+          </li>
 
-                <li>
-                  <a href="#feedback" title="Reports Link">
-                    <div class="icon">
-                        <img src="assets/feedback.svg" title="Reports Icon">
-                    </div>
-                    <span class="link hide">Feedback</span>
-                  </a>
-                </li>
-
-              </ul>
-            </div>
-          </nav>
-          <script src="script-pg-inicial.js"></script>
-          <script src="dropdown.js"></script>
+        </ul>
+      </div>
+    </nav>
     
-</body></html>
+    <div class="main">
+
+    </div>
+
+
+  </div>
+
+  <script src="script-pg-inicial.js"></script>
+  <script src="dropdown.js"></script>
+</body>
+
+</html>
