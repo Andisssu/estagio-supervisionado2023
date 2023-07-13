@@ -1,69 +1,114 @@
 body {
-  background: #e2e2e2;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   background-image: url("imagens/blob-scene-haikei.png");
   background-size: cover;
 }
 
-.rectangle-10 {
+.container {
   background: #b4c4ff;
   border-radius: 17px;
-  width: 1000px;
+  width: 80%;
+  max-width: 1000px;
+  /* Define uma largura máxima para o elemento */
   height: 480px;
-  position: absolute;
-  left: 182px;
-  top: 68px;
   box-shadow: 10px 11px 4px 0px rgba(0, 0, 0, 0.25);
+  position: relative;
+  min-height: 50%;
+  margin: 0.3em auto;
+  /* Centraliza horizontalmente e aplica margens superior e inferior */
 }
 
 .rectangle-3 {
   background: #ffffff;
-  border-radius: 17px 17px 17px 17px;
-  width: 500px;
+  border-radius: 17px;
+  width: 50%;
+  /* Ajusta a largura do elemento em relação ao container */
+  max-width: 1000px;
+  /* Define uma largura máxima para o elemento */
   height: 468px;
-  position: absolute;
-  left: 190px;
-  top: 73px;
+  margin-top: 0.4em;
+  /* Adiciona espaçamento superior */
+  margin-left: 0.2em;
+}
+
+@media (max-width: 768px) {
+  .rectangle-3 {
+    height: 98%;
+  }
 }
 
 .recuperar-senha {
   color: #0140bb;
   text-align: left;
   font: 400 10px "Inter", sans-serif;
-  position: absolute;
-  left: 235px;
-  top: 510px;
+  margin-left: 4.2em;
 }
 
 .logo-ufac {
-  width: 320px;
-  height: 422px;
+  width: 30%;
+  /* Ajusta a largura do elemento em relação ao container */
+  max-width: 320px;
+  /* Define uma largura máxima para o elemento */
+  height: auto;
+  /* Ajusta a altura proporcionalmente à largura */
   position: absolute;
-  left: 780px;
-  top: 85px;
+  top: 50%;
+  right: 2%;
+  transform: translate(-25%, -50%);
 }
+
+/* Media query para resolução mobile */
+@media (max-width: 768px) {
+  .logo-ufac {
+    width: 30%;
+    /* Reduz a largura do elemento em relação ao container */
+    max-width: 200px;
+    /* Define uma largura máxima menor para o elemento */
+    transform: translate(-25%, -50%);
+  }
+}
+
 
 .logo-nai {
-  width: 135px;
-  height: 130px;
+  width: 20%;
+  /* Ajusta a largura do elemento em relação ao container */
+  max-width: 135px;
+  /* Define uma largura máxima para o elemento */
+  height: auto;
+  /* Ajusta a altura proporcionalmente à largura */
   position: absolute;
-  left: 360px;
-  top: 80px;
+  top: 20%;
+  left: 25%;
+  transform: translate(-50%, -50%);
 }
 
+@media (max-width: 768px) {
+  .logo-nai {
+    width: 30%;
+    /* Reduz a largura do elemento em relação ao container */
+    max-width: 200px;
+    /* Define uma largura máxima menor para o elemento */
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+
 .rodape {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   color: #000000;
   text-align: center;
-  font: 400 12px "Inter", sans-serif;
-  position: absolute;
-  left: 410px;
-  top: 585px;
-  width: 492px;
-  height: 33px;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
 }
 
 
@@ -85,6 +130,12 @@ body {
   margin-left: 8%;
 }
 
+@media (max-width: 768px) {
+  .input-user {
+    margin-top: 80%;
+  }
+}
+
 .input-pass {
   color: #000000;
   font-size: 0.9rem;
@@ -100,6 +151,7 @@ body {
   margin-top: 5%;
   margin-left: 8%;
 }
+
 
 .input-border {
   position: absolute;
@@ -150,37 +202,36 @@ body {
 
 .butt-entar {
   color: #ffffff;
-  width: fit-content;
-  min-width: 100px;
+  width: 20%;
+  max-width: 80px;
   height: 35px;
   padding: 8px;
   border-radius: 5px;
   border: none;
-  box-shadow: 0px 0px 20px -20px;
+  box-shadow: 0px 0px 20px -20px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   background-color: #6ca4f7;
   transition: all 0.2s ease-in-out 0ms;
   user-select: none;
   font-family: 'Poppins', sans-serif;
   margin-top: 7%;
-  margin-left: 68%;
+  margin-left: 72%;
+}
+
+@media (max-width: 768px) {
+  .butt-entar {
+    margin-top: 20%;
+    min-width: 40%;
+    transform: translate(-61%);
+  }
 }
 
 .butt-entar:hover {
   color: #000000;
   background-color: #81fa71;
-  box-shadow: 0px 0px 20px -18px;
+  box-shadow: 0px 0px 20px -18px rgba(0, 0, 0, 0.25);
 }
 
 .butt-entar:active {
   transform: scale(0.95);
 }
-
-#cursorPersonalizado {
-  position: fixed;
-  width: 16px; /* Tamanho inicial da imagem do cursor */
-  height: 16px; /* Tamanho inicial da imagem do cursor */
-  pointer-events: none; /* Impede que a imagem do cursor seja clicada */
-  z-index: 9999; /* Define a sobreposição para garantir que o cursor esteja sempre visível */
-}
-
