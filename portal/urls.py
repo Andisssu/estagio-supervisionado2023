@@ -20,7 +20,7 @@ from django.views.generic.base import TemplateView
 from . import views
 
 urlpatterns = [
-
+    path('', include('authentication.urls')), # Rota para a URL raiz
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('acompanhamentos/', include('acompanhamentos.urls')),
