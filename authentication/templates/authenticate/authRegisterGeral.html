@@ -29,13 +29,18 @@
       <H3 align="center">Selecione como deseja se cadastrar</H3>
       <div style="margin-left: 150px; margin-right: 150px">
         <div class="d-flex p-2 justify-content-evenly">
-          <a type="button" class="d-flex btn btn-primary align-items-center justify-content-center"
+          <a type="button" class="d-flex btn btn-primary align-items-center justify-content-center m-2"
              href="{% url 'authRegisterAluno' %}" style="height: 60px; width: 120px;">Sou aluno</a>
-          <a type="button" class="d-flex btn btn-primary align-items-center justify-content-center"
+          <a type="button" class="d-flex btn btn-primary align-items-center justify-content-center m-2"
              href="{% url 'authRegisterMonitor' %}" style="height: 60px; width: 120px;">Sou monitor</a>
-          <a type="button" class="d-flex btn btn-primary align-items-center justify-content-center"
+          <a type="button" class="d-flex btn btn-primary align-items-center justify-content-center m-2"
              href="{% url 'authRegisterTutor' %}" style="height: 60px; width: 120px;">Sou tutor</a>
+          <a type="button" class="d-flex btn btn-primary align-items-center justify-content-center m-2" 
+             href="{% url 'authRegisterInterprete' %}" style="height: 60px; width: 120px;">Sou Intérprete</a>
         </div>
       </div>
+
+    <!--Adição do botão de interprete e modificação no css para que eles fiquem distanciados de uma forma-->
+      
     {% endif %}
 {% endblock %}
