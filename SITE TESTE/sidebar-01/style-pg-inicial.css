@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+:root {
+  /* --primary-color: #7771F6; */
+  --primary-color-dark: #2f2c83;
+  --button-color: #5433FF;
+  --button-color-shadow: #5433FF30;
+  --text-color: white;
+}
+
+.container {
+  display: flex;
+  position: relative;
+  /* flex-direction: column; */
+  align-items: center;
+  /* justify-content: center; */
+  height: 100%;
+  background-color: #ebebeb;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #eeeeee;
+  transition: width 0.5s ease-in-out;
+  padding: 1.8rem 0.85rem;
+  z-index: 1;
+}
+
+.sidebar {
+  background-image: linear-gradient(to bottom, #B4C4FF, #287796);
+  box-shadow: 5px 0px 9px 0px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+/* body{
+    background-color: #F5F5F5;
+    font-family: 'Mulish', sans-serif;
+    overflow-x: hidden;
+    user-select: none;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Mulish;
+}
+
+.background {
+  content: "";
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  opacity: 0.5;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+nav {
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: var(--primary-color);
+  width: 18rem;
+  padding: 1.8rem 0.85rem;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.5s ease-in-out;
+}
+
+.sidebar-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sidebar-top .logo {
+  position: relative;
+  width: 50px;
+  margin-right: 1.45rem;
+  left: -1px;
+}
+
+.sidebar-top h2 {
+  padding-left: 0.5rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.expand-btn {
+  position: absolute;
+  top: 50%;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  background-color: var(--button-color);
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px -3px var(--button-color-shadow);
+  right: -3rem;
+  transform: translateY(-50%) translateX(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+
+nav:hover .expand-btn,
+.expand-btn.hovered {
+  transform: translateY(-50%) translateX(0px);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.sidebar-links ul {
+  list-style-type: none;
+  position: relative;
+
+}
+
+.sidebar-links li {
+  position: relative;
+}
+
+.sidebar-links li a {
+  padding: 35px;
+  color: var(--text-color);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  text-decoration: none;
+  color: #ffffff;
+  padding-left: 0px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+
+}
+
+.icon img {
+
+  width: 38px;
+  height: 38px;
+  margin: 5px;
+}
+
+.sidebar-links .link {
+  margin-left: 20px;
+}
+
+.sidebar-links .active {
+  width: 100%;
+  text-decoration: none;
+  background-color: var(--primary-color-dark);
+  transition: all 100ms ease-in;
+  border-radius: 10px;
+}
+
+.tabela > a {
+  -moz-transition: .5s, color .10s;
+  -webkit-transition: .5s, color .10s;
+  transition: .5s, color .10s;
+}
+
+.tabela > a:hover {
+  -moz-transform: scale3d(2, 1.5, 0.3);
+  -webkit-transform: scale3d(1.5, 1.5, 0.3);
+  transform: scale3d(1.1, 1.1, 0.3);
+}
+
+body.collapsed nav {
+  width: 80px;
+}
+
+body.collapsed .hide {
+  opacity: 0;
+  pointer-events: none;
+  transition-delay: 0s;
+}
+
+body.collapsed .expand-btn img {
+  transform: rotate(-180deg);
+}
+
+/* ________________________________________________dropdown__________________________ */
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1c1a4c;
+  width: 250px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.836);
+  z-index: 1;
+  left: 80%;
+  top: 60%;
+  border-radius: 20px;
+  transform: none;
+  transition: none;
+
+}
+
+.dropdown-content a {
+  
+  padding: 12px 16px;
+  margin-left: auto;
+  text-decoration: none;
+  display: block;
+  justify-content: center;
+  transform: none;
+  transition: none;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  transform: none;
+  transition: none;
+}
+
+.dropdown-content .active {
+  width: 100%;
+  text-decoration: none;
+  background-color: #6066f4;
+  transition: all 100ms ease-in;
+  transform: none;
+  transition: none;
+
+
+}
+
+
+/* .dropdown-content a.unclickable {
+  pointer-events: none;
+  color: #ccc;
+} */
