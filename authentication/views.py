@@ -472,3 +472,8 @@ def valida_string(s):
             break  # sai do while
         else:
             return False
+        
+ 
+
+def ini_login(request):
+    return render(request, 'authenticate/ini_login.html')

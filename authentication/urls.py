@@ -3,7 +3,9 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    path('', views.authLogin, name='authLogin'),  # Rota para a URL raiz
+    
+    path('', views.ini_login, name='ini_login'),  # Rota para a URL raiz
+    path('ini_login', views.ini_login, name='ini_login'),
     path('authLogin', views.authLogin, name='authLogin'),
     path('authLogout', views.authLogout, name='authLogout'),
     path('authRegister', views.authRegister, name='authRegister'),
