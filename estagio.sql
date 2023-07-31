@@ -231,6 +231,12 @@ create table if not exists RELATORIOS_TUTORIA (
     foreign key(relT_tutoria) references ACOMPANHAMENTO_TUTORIA(AsTut_id)
 );
 
+create table if not exists usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    senha VARCHAR(100) NOT NULL
+);
+
 
 use estagio;
 
