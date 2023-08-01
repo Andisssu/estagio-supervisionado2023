@@ -11,6 +11,7 @@ urlpatterns = [
 
     path('ini_login', views.ini_login, name='ini_login'),
     path('authLogin', views.authLogin, name='authLogin'),
+    path('authLogin', views.authLogin, name='authLogin'),
     path('authLogout', views.authLogout, name='authLogout'),
     path('authRegister', views.authRegister, name='authRegister'),
     path('authRegisterGeral', views.authRegisterGeral, name='authRegisterGeral'),
