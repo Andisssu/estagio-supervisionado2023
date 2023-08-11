@@ -286,12 +286,42 @@ body.collapsed .expand-btn img {
   box-shadow: 5px 0px 9px 0px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   transition: .5s, color .10s;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-gap: 10px;
 }
 
-.pessoais:hover{
-  box-shadow: 0 8px 8px 0 #bebbbc,0 8px 8px 0 #adadab;
+.pessoais:hover {
+  box-shadow: 0 8px 8px 0 #bebbbc, 0 8px 8px 0 #adadab;
   transform: translate(3em, 4em);
 }
+
+.pessoais h1 {
+  grid-column: 1 / span 3;
+}
+
+.nome,
+.cpf,
+.rg,
+.data_nasc,
+.sexo {
+  display: flex;
+  flex-direction: column;
+}
+
+.nome,
+.cpf,
+.rg {
+  grid-column: span 1;
+}
+
+.data_nasc,
+.sexo {
+  grid-column: span 2;
+}
+
+
 
 .residencia {
   position: absolute;
@@ -310,6 +340,31 @@ body.collapsed .expand-btn img {
   transform: translate(45em, 4em);
 }
 
+.residencia {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+}
+
+.residencia h1 {
+  grid-column: 1 / span 3;
+}
+
+.bairro,
+.rua,
+.numero {
+  display: flex;
+  flex-direction: column;
+}
+
+.bairro,
+.rua,
+.numero {
+  grid-column: span 1;
+}
+
+
 .bancario {
   position: absolute;
   padding: 10px;
@@ -327,3 +382,4 @@ body.collapsed .expand-btn img {
   transform: translate(45em, 34em);
 }
             
+
