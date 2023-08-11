@@ -23,6 +23,10 @@ body {
   /* Centraliza horizontalmente e aplica margens superior e inferior */
 }
 
+.container form {
+  margin-bottom: 15px;
+}
+
 .rectangle-3 {
   background: #ffffff;
   border-radius: 17px;
