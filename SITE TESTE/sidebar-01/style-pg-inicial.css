@@ -12,6 +12,7 @@
   --text-color: white;
 }
 
+
 * body {
   height: 100%;
   margin: 0;
@@ -37,8 +38,6 @@
 
 }
 
-
-
 .main {
   position: relative;
   width: 100%;
@@ -56,7 +55,6 @@
   z-index: 2;
   flex-grow: 1;
 }
-
 
 
 * {
@@ -320,8 +318,6 @@ body.collapsed .expand-btn img {
 .sexo {
   grid-column: span 2;
 }
-
-
 
 .residencia {
   position: absolute;
