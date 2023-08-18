@@ -38,7 +38,7 @@
 
 }
 
-/* .main {
+.main {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -46,7 +46,7 @@
   transition: width 0.5s ease-in-out;
   padding: 1.8rem 0.85rem;
   z-index: 1;
-} */
+}
 
 .sidebar {
 
@@ -263,119 +263,59 @@ body.collapsed .expand-btn img {
   pointer-events: none;
   color: #ccc;
 } */
-/* _________________________________________________________ card_dados _______________________________________________ */
- 
-.card_dados {
-  position: absolute;
-  padding: 20px;
-  background-color: #8786a300;
-  width: 97em;
-  height: 53em;
-  transform: translate(10%, 1%);
-}
+/* ______________________________________________________________________ relatorios ____________________________________________________________________________________________ */
+    
 
-.pessoais {
-  position: absolute;
-  padding: 10px;
-  background-color: #ffffff;
-  width: 40em;
-  height: 40em;
-  transform: translate(3em, 5em);
-  box-shadow: 5px 0px 9px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  transition: .5s, color .10s;
+.relatorios {
+  width: 1366px;
+  height: 768px;
+  background-color: #a5a4c6;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto auto;
-  grid-gap: 10px;
+  grid:
+    "a b" 1fr
+    "c b" 1fr
+    / 1fr 1fr;
+  gap: 8px;
 }
 
-.pessoais:hover {
-  box-shadow: 0 8px 8px 0 #bebbbc, 0 8px 8px 0 #adadab;
-  transform: translate(3em, 4em);
+.a {
+  grid-area: a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.pessoais h1 {
-  grid-column: 1 / span 3;
+.b {
+  grid-area: b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.nome,
-.cpf,
-.rg,
-.data_nasc,
-.sexo {
+.b input[type="file"] {
+  display: none;
+}
+
+.b label {
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 4px;
+}
+
+.c {
+  grid-area: c;
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
-.nome,
-.cpf,
-.rg {
-  grid-column: span 1;
+.c textarea {
+  resize: vertical;
+  width: 100%;
+  min-height: 100px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-
-.data_nasc,
-.sexo {
-  grid-column: span 2;
-}
-
-.residencia {
-  position: absolute;
-  padding: 10px;
-  background-color: #ffffff;
-  width: 50em;
-  height: 28em;
-  transform: translate(45em, 5em);
-  box-shadow: 5px 0px 9px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  transition: .5s, color .10s;
-}
-
-.residencia:hover{
-  box-shadow: 0 8px 8px 0 #bebbbc,0 8px 8px 0 #adadab;
-  transform: translate(45em, 4em);
-}
-
-.residencia {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-gap: 10px;
-}
-
-.residencia h1 {
-  grid-column: 1 / span 3;
-}
-
-.bairro,
-.rua,
-.numero {
-  display: flex;
-  flex-direction: column;
-}
-
-.bairro,
-.rua,
-.numero {
-  grid-column: span 1;
-}
-
-
-.bancario {
-  position: absolute;
-  padding: 10px;
-  background-color: #ffffff;
-  width: 50em;
-  height: 10em;
-  transform: translate(45em, 35em);
-  box-shadow: 5px 0px 9px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  transition: .5s, color .10s;
-}
-
-.bancario:hover{
-  box-shadow: 0 8px 8px 0 #bebbbc,0 8px 8px 0 #adadab;
-  transform: translate(45em, 34em);
-}
-            
-
