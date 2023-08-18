@@ -1,4 +1,6 @@
+{% extends 'baseLogin.html' %}
 {% load static %}
+
 
 <!DOCTYPE html>
 <HTML>
@@ -7,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,user-scalable=no">
   <title>Capivara</title>
-  <link rel="stylesheet" href={% static 'css/CSS_login.css' %}>
+  <link rel="stylesheet" href={% static 'assetsLogin/css/CSS_login.css' %}>
   <script src="JS_login.js"></script>
 
   <script></script>
@@ -17,7 +19,7 @@
 
   <div class="container">
     <div class="rectangle-3">
-      <img class="logo-nai" src={% static 'imgs/NAI.png' %} />
+      <img class="logo-nai" src={% static 'assetsLogin/img/NAI.png' %} />
 
       <form class="form" method="post" action="{% url 'login' %}">
         {% csrf_token %}
@@ -38,12 +40,12 @@
 
     </div>
 
-    <img class="logo-ufac" src={% static 'imgs/logo-ufac.png' %} />
+    <img class="logo-ufac" src={% static 'assetsLogin/img/logo-ufac.png' %} />
 
   </div>
 
 
-  <img class="img-fundo" src={% static 'imgs/blob-scene-haikei.png' %} />
+  <img class="img-fundo" src={% static 'assetsLogin/img/blob-scene-haikei.png' %} />
 
 </body>
 <footer>

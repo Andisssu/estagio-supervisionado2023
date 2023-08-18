@@ -38,7 +38,7 @@
 
 }
 
-/* .main {
+.main {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -46,7 +46,7 @@
   transition: width 0.5s ease-in-out;
   padding: 1.8rem 0.85rem;
   z-index: 1;
-} */
+}
 
 .sidebar {
 
@@ -263,8 +263,8 @@ body.collapsed .expand-btn img {
   pointer-events: none;
   color: #ccc;
 } */
-/* _________________________________________________________ card_dados _______________________________________________ */
- 
+/* ______________________________________________________________________ MAIN ____________________________________________________________________________________________ */
+
 .card_dados {
   position: absolute;
   padding: 20px;

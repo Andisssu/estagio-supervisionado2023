@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Sidebar</title>
+  <link rel="stylesheet" href="style-pg-inicial.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <nav class="sidebar">
+
+
+      <div class="sidebar-top">
+        <span class="expand-btn">
+          <img src="assets/chevron.svg" alt="Chevron">
+        </span>
+        <img src="imagens/Logo-ufac.png" class="logo" alt="NAI">
+        <h3 class="hide">Nucleo de Apoio a Inclusão - NAI</h3>
+      </div>
+
+      <div class="sidebar-links">
+        <ul>
+
+          <li class="dropdown tabela">
+            <a href="#portfolio" class="active" title="Portfolio link">
+              <div class="icon">
+                <img src="assets/avisos.svg" title="Portfolio Icon">
+              </div>
+              <span class="link hide">Avisos</span>
+            </a>
+            <!-- <div class="dropdown-content">
+              <a href="#admin">Administradores</a>
+              <a href="#alunos">Alunos</a>
+              <a href="#monitores">Monitores</a>
+              <a href="#tutores">Tutores</a>
+              <a href="#interpretes">Intérpretes</a>
+
+              <a href="#usuarios_ativos">Usuários Ativos</a>
+              <a href="#usuarios_inativos">Usuários Inativos</a>
+            </div> -->
+          </li>
+
+
+          <!-- <li class="tabela">
+            <a href="#analytics" title="Analytics link">
+              <div class="icon">
+                <img src="assets/user.svg" title="Analytics Icon">
+              </div>
+              <span class="link hide">Usuarios</span>
+            </a>
+          </li> -->
+
+          <li class="tabela">
+            <a href="#dashboard" title="Performance link">
+              <div class="icon">
+                <img src="assets/acompanhamento.svg" title="Performance Icon">
+              </div>
+              <span class="link hide">Acompanhamentos</span>
+            </a>
+          </li>
+
+          <li class="tabela">
+            <a href="#reports" title="Reports Link">
+              <div class="icon">
+                <img src="assets/relatorios.svg" title="Performance Icon">
+              </div>
+              <span class="link hide">Relatorios</span>
+            </a>
+          </li>
+
+          <li class="tabela">
+            <a href="#feedback" title="Reports Link">
+              <div class="icon">
+                <img src="assets/feedback.svg" title="Reports Icon">
+              </div>
+              <span class="link hide">Feedback</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+    </nav>
+
+
+
+    <div class="card_dados">
+
+      <div class="pessoais" id="pessoais">
+        <h1>Pessoais</h1>
+        <div class="nome">
+          <h4>Nome</h4>
+          <p>Anderson Dantas Santos</p>
+        </div>
+        <div class="cpf">
+          <h4>CPF</h4>
+          <p>123.456.789.10</p>
+        </div>
+        <div class="rg">
+          <h4>RG</h4>
+          <p>1234567-8</p>
+        </div>
+        <div class="data_nasc">
+          <h4>Data de Nascimento</h4>
+          <p>24/09/1999</p>
+        </div>
+        <div class="sexo">
+          <h4>Sexo</h4>
+          <p>masculino</p>
+        </div>
+      </div>
+
+      <div class="residencia">
+        <h1>Residencia</h1>
+        <div class="bairro">
+          <h4>Bairro</h4>
+          <p>Cadeia Velha</p>
+        </div>
+        <div class="rua">
+          <h4>Rua</h4>
+          <p>São Raimundo</p>
+        </div>
+        <div class="numero">
+          <h4>Numero</h4>
+          <p>239</p>
+        </div>
+      </div>
+
+      <div class="bancario">
+        <h1>Banco</h1>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
+    defer></script>
+  <script src="script-pg-inicial.js"></script>
+  <script src="dropdown.js"></script>
+
+
+
+
+
+</body>
+
+</html>
+
+<!-- 
+<div class="dados">
+  <div class="nome">
+    <h2>Nome</h2>
+    <p>Nome do usuario</p>
+  </div>
+  <div class="cpf">
+    <h2>CPF</h2>
+    <p>CPF do usuario</p>
+  </div>
+  <div class="rg">
+    <h2>RG</h2>
+    <p>RG do usuario</p>
+  </div>
+  <div class="data_nasc">
+    <h2>Data de Nascimento</h2>
+    <p>Data de Nascimento do usuario</p>
+  </div>
+  <div class="sexo">
+    <h2>Sexo</h2>
+    <p>Sexo do usuario</p>
+  </div>
+  <div class="estado_civil">
+    <h2>Estado Civil</h2>
+    <p>Estado Civil do usuario</p>
+  </div>
+  <div class="naturalidade">
+    <h2>Naturalidade</h2>
+    <p>Naturalidade do usuario</p>
+  </div>
+  <div class="nacionalidade">
+    <h2>Nacionalidade</h2>
+    <p>Nacionalidade do usuario</p>
+  </div>
+  <div class="nome_mae">
+    <h2>Nome da Mãe</h2>
+    <p>Nome da Mãe do usuario</p>
+  </div>
+  <div class="nome_pai">
+    <h2>Nome do Pai</h2>
+    <p>Nome do Pai do usuario</p>
+  </div>
+  <div class="telefone">
+    <h2>Telefone</h2>
+    <p>Telefone do usuario</p>
+  </div>
+  <div class="celular">
+    <h2>Celular</h2>
+    <p>Celular do usuario</p>
+  </div>
+  <div class="email">
+    <h2>Email</h2>
+    <p>Email do usuario</p>
+  </div>
+  <div class="endereco">
+    <h2>Endereço</h2>
+    <p>Endereço do usuario</p>
+  </div>
+  <div class="numero">
+    <h2>Numero</h2>
+    <p>Numero do usuario</p>
+  </div> -->

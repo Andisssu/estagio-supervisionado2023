@@ -4,12 +4,10 @@ from . import views
 
 urlpatterns = [
     
-    path('', views.ini_login, name='ini_login'),  # Rota para a URL raiz
+    path('', views.authLogin, name='authLogin'),  # Rota para a URL raiz
 
     path('login/', views.login_view, name='login'),
     
-
-    path('ini_login', views.ini_login, name='ini_login'),
     path('authLogin', views.authLogin, name='authLogin'),
     path('authLogin', views.authLogin, name='authLogin'),
     path('authLogout', views.authLogout, name='authLogout'),
