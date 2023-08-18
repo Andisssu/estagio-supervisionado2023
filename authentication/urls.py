@@ -5,10 +5,6 @@ from . import views
 urlpatterns = [
     
     path('', views.authLogin, name='authLogin'),  # Rota para a URL raiz
-
-    path('login/', views.login_view, name='login'),
-    
-    path('authLogin', views.authLogin, name='authLogin'),
     path('authLogin', views.authLogin, name='authLogin'),
     path('authLogout', views.authLogout, name='authLogout'),
     path('authRegister', views.authRegister, name='authRegister'),
