@@ -25,7 +25,6 @@
 .container {
   display: flex;
   position: relative;
-  flex-direction: column;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -53,7 +52,7 @@
   background-image: linear-gradient(to bottom, #B4C4FF, #287796);
   box-shadow: 5px 0px 9px 0px rgba(0, 0, 0, 0.25);
   z-index: 2;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
 
@@ -269,31 +268,46 @@ body.collapsed .expand-btn img {
 .relatorios {
   width: 1366px;
   height: 768px;
-  background-color: #a5a4c6;
+  background-color: #c6c6c6;
   display: grid;
   grid:
     "a b" 1fr
     "c b" 1fr
     / 1fr 1fr;
   gap: 8px;
+  margin-left: 5em;
+  border-radius: 50px;
 }
 
 .a {
+  width: 100%;
+  background-color: #c6c6c6;
   grid-area: a;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
+  border-radius: 50px;
 }
 
+.a button {
+  width: 20em;
+  height: 3em;
+}
+
+
 .b {
+  background-color: #c6c6c6;
   grid-area: b;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50px;
 }
 
 .b input[type="file"] {
   display: none;
+  width: 20em;
+  height: 2em;
 }
 
 .b label {
@@ -304,18 +318,20 @@ body.collapsed .expand-btn img {
   border-radius: 4px;
 }
 
+textarea {
+  height: 50%;
+  width: 70%;
+}
+
 .c {
+  border-radius: 50px;
+  background-color: #c6c6c6;
   grid-area: c;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  justify-content: center;
+  align-items: left;
 }
 
-.c textarea {
-  resize: vertical;
-  width: 100%;
-  min-height: 100px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+
