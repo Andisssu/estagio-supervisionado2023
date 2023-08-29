@@ -284,9 +284,12 @@ body.collapsed .expand-btn img {
   background-color: #c6c6c6;
   grid-area: a;
   display: flex;
+  flex-direction: column;
   justify-content: left;
   align-items: center;
   border-radius: 50px;
+  justify-content: center;
+  
 }
 
 .a button {
@@ -299,9 +302,11 @@ body.collapsed .expand-btn img {
   background-color: #c6c6c6;
   grid-area: b;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
+  
 }
 
 .b input[type="file"] {
@@ -316,6 +321,7 @@ body.collapsed .expand-btn img {
   background-color: #3498db;
   color: white;
   border-radius: 4px;
+  
 }
 
 textarea {
@@ -330,8 +336,23 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  align-items: center;
   justify-content: center;
   align-items: left;
+  padding: 0 0 0 2em;
 }
 
+.titulo {
+  position: absolute;
+  top: 1%;
+  left: 26%;
+  transform: translateX(-50%);
+}
+
+p{
+  font-size: 1.5em;
+  font-weight: bold;
+  left: 26%;
+  
+}
 
