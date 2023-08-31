@@ -1034,6 +1034,16 @@ def atualizarAlunoPerfil(request, user_id):
     })
 
 #MONITOR_TUTOR========================================================================================
+def monitorIndex(request):
+    monitor = AlunoPcd.objects.all()
+    paginator = Paginator(monitor, 10)
+
+    page = request.GET.get('p')
+    monitor = paginator.get_page(page)
+
+    return render(request, 'monitor_tutor/monitorIndex.html', {
+     'monitor' : monitor
+    })
 
 def monitor(request, user_id):
     user = get_object_or_404(CustomUser, id=user_id)
@@ -1057,6 +1067,17 @@ def atualizarMonitorPerfil(request, user_id):
         'form': form
     })
 
+def tutorIndex(request):
+    tutor = AlunoPcd.objects.all()
+    paginator = Paginator(tutor, 10)
+
+    page = request.GET.get('p')
+    tutor = paginator.get_page(page)
+
+    return render(request, 'monitor_tutor/tutorIndex.html', {
+     'tutor' : tutor
+    })
+    
 def tutor(request, user_id):
     user = get_object_or_404(CustomUser, id=user_id)
     tutor = get_object_or_404(Tutor, tut_cpf=user.username)
@@ -1081,6 +1102,18 @@ def atualizarTutorPerfil(request, user_id):
 
 #INTERPRETE============================================================================================
 
+def interpreteIndex(request):
+    interprete = AlunoPcd.objects.all()
+    paginator = Paginator(interprete, 10)
+
+    page = request.GET.get('p')
+    interprete = paginator.get_page(page)
+
+    return render(request, 'interpretes/interpreteIndex.html', {
+     'interprete' : interprete
+    })
+    
+    
 def interprete(request, user_id):
     user = get_object_or_404(CustomUser, id=user_id)
     interprete = get_object_or_404(Interprete, int_cpf=user.username)
