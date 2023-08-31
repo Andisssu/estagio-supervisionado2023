@@ -24,11 +24,11 @@
 <p>Para deslogar, <a style="color:black;" type="button" class="btn-link" href="{% url 'authLogout' %}">clique aqui!</a>
 </p>
 {% else %}
-
-<form class="form" method="post" action="">
+<img class="logo-nai" src={% static '../static/img/NAI.png' %} />
+<form class="form" method="POST" action="">
   {% csrf_token %}
   <div class="id-user">
-    <input class="input-user" placeholder="Nome" required="" type="text" name="nome">
+    <input class="input-user" placeholder="CPF" required="" type="text" name="usuario">
     <span class="input-border input-border-alt"></span>
   </div>
 
@@ -37,10 +37,10 @@
     <span class="input-border input-border-alt"></span>
   </div>
 
-  <button class="butt-entar" type="submit"> ENTRAR </button>
+  <button class="butt-entar" type="submit" > ENTRAR </button>
 </form>
 
-<div class="recuperar-senha">Recuperar senha</div>
+<a class="recuperar-senha" href="{% url 'password_reset' %}">Recuperar senha</a>
 
 
 
