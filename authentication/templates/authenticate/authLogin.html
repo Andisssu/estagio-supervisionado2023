@@ -4,46 +4,49 @@
 {% block conteudo %}
 
 {% if user.is_authenticated %}
-{% if user.user_type == 1 %}
-<p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link"
-    href="{% url 'aviIndex' %}">Retorne ao site aqui!</a></p>
-{% elif user.user_type == 2 %}
-<p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link"
-    href="{% url 'aviIndexAluno' %}">Retorne ao site aqui!</a></p>
-{% elif user.user_type == 3 %}
-<p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link"
-    href="{% url 'aviIndexMonitor' %}">Retorne ao site aqui!</a></p>
-{% elif user.user_type == 4 %}
-<p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link"
-    href="{% url 'aviIndexTutor' %}">Retorne ao site aqui!</a></p>
-{% elif user.user_type == 5 %}
-<p>Você já realizou login como {{ user.username }}! <a style="color:black;" type="button" class="btn-link"
-    href="{% url 'aviIndexInterprete' %}">Retorne ao site aqui!</a></p>
-{% endif %}
-<br>
-<p>Para deslogar, <a style="color:black;" type="button" class="btn-link" href="{% url 'authLogout' %}">clique aqui!</a>
-</p>
+    {% if user.user_type == 1 %}
+        <!-- Código para exibir informações para o tipo de usuário 1 -->
+    {% elif user.user_type == 2 %}
+        <!-- Código para exibir informações para o tipo de usuário 2 -->
+    {% elif user.user_type == 3 %}
+        <!-- Código para exibir informações para o tipo de usuário 3 -->
+    {% elif user.user_type == 4 %}
+        <!-- Código para exibir informações para o tipo de usuário 4 -->
+    {% elif user.user_type == 5 %}
+        <!-- Código para exibir informações para o tipo de usuário 5 -->
+    {% endif %}
+    <br>
+    <p>Para deslogar, <a style="color:black;" type="button" class="btn-link" href="{% url 'authLogout' %}">clique aqui!</a></p>
 {% else %}
-<img class="logo-nai" src={% static '../static/img/NAI.png' %} />
-<form class="form" method="POST" action="">
-  {% csrf_token %}
-  <div class="id-user">
-    <input class="input-user" placeholder="CPF" required="" type="text" name="usuario">
-    <span class="input-border input-border-alt"></span>
-  </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="container-fluid">
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
 
-  <div class="id-pass">
-    <input class="input-pass" placeholder="Senha" required="" type="password" name="senha">
-    <span class="input-border input-border-alt"></span>
-  </div>
+    <img class="logo-nai" src={% static '../static/img/NAI.png' %} />
+    <form class="form" method="POST" action="">
+        {% csrf_token %}
+        <div class="id-user">
+            <input class="input-user" placeholder="CPF" required="" type="text" name="usuario">
+            <span class="input-border input-border-alt"></span>
+        </div>
 
-  <button class="butt-entar" type="submit" > ENTRAR </button>
-</form>
+        <div class="id-pass">
+            <input class="input-pass" placeholder="Senha" required="" type="password" name="senha">
+            <span class="input-border input-border-alt"></span>
+        </div>
 
-<a class="recuperar-senha" href="{% url 'password_reset' %}">Recuperar senha</a>
+        <button class="butt-entar" type="submit"> ENTRAR </button>
+    </form>
 
-
-
-
+    <a class="recuperar-senha" href="{% url 'password_reset' %}">Recuperar senha</a>
 {% endif %}
 {% endblock %}

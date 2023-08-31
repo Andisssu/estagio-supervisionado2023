@@ -20,17 +20,15 @@ def login_view(request):
         try:
             usuario = usuario.objects.get(nome=nome, senha=senha)
             # Se as credenciais estiverem corretas, redirecione para a página desejada (dashboard).
-            return redirect('ini_login')
+            return redirect('authLogin')
         except usuario.DoesNotExist:
             # Se as credenciais não estiverem corretas, renderize a página de login novamente com uma mensagem de erro.
             error_message = 'Credenciais inválidas.'
-            return render(request, 'ini_login.html', {'error_message': error_message})
+            return render(request, 'authLogin.html', {'error_message': error_message})
 
-    return render(request, 'ini_login.html')
-
-def authLogin(request):
-    # Aqui você pode adicionar o código para renderizar a página do painel do usuário.
     return render(request, 'authLogin.html')
+
+
 
 
 def authLogin(request):
@@ -498,7 +496,3 @@ def valida_string(s):
         else:
             return False
         
- 
-
-def ini_login(request):
-    return render(request, 'authenticate/ini_login.html')
