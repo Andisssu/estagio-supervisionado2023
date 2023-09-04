@@ -18,19 +18,6 @@
     <br>
     <p>Para deslogar, <a style="color:black;" type="button" class="btn-link" href="{% url 'authLogout' %}">clique aqui!</a></p>
 {% else %}
-    {% if messages %}
-        {% for message in messages %}
-            <div class="container-fluid">
-                <div class="alert alert-danger" role="alert">
-                    {{ message }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        {% endfor %}
-    {% endif %}
-
     <img class="logo-nai" src={% static '../static/img/NAI.png' %} />
     <form class="form" method="POST" action="">
         {% csrf_token %}
