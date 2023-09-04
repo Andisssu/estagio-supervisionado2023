@@ -1,3 +1,4 @@
+
 body {
     display: flex;
     justify-content: center;
@@ -16,6 +17,7 @@ body {
     z-index: -1;
     background-size: cover;
   }
+
   
   .container {
     background: #b4c4ff;
@@ -243,3 +245,37 @@ body {
   .butt-entar:active {
     transform: scale(0.95);
   }
+
+  .alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.35rem;
+  }
+
+  .alert-danger{
+    color: #78261f;
+    background-color: #fadbd8;
+    border-color: #f8ccc8;
+    position: fixed;
+    top: 5em;
+    left: 18em;
+    padding: 10px;
+  }
+
+  .alert-danger hr {
+    border-top-color: #f5b7b1;
+  }
+  
+  .alert-danger .alert-link {
+    color: #4f1915;
+  }
+
+.container-fluid {
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: auto;
+  margin-left: auto;
+}
