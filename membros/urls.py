@@ -67,11 +67,16 @@ urlpatterns = [
     path('alunos/atualizarAlunoPerfil/<int:user_id>', views.atualizarAlunoPerfil, name='atualizarAlunoPerfil'),
 
     #Monitor_tutor
+    path('monitores', views.monitorIndex, name='monitorIndex'),
     path('monitores/<int:user_id>', views.monitor, name='monitor'),
     path('monitores/atualizarMonitorPerfil/<int:user_id>', views.atualizarMonitorPerfil, name='atualizarMonitorPerfil'),
+   
+    path('tutores', views.tutorIndex, name='tutorIndex'),
     path('tutores/<int:user_id>', views.tutor, name='tutor'),
     path('tutores/atualizarTutorPerfil/<int:user_id>', views.atualizarTutorPerfil, name='atualizarTutorPerfil'),
+    
     #Interpretes
+    path('interpretes', views.interpreteIndex, name='interpreteIndex'),
     path('interpretes/<int:user_id>', views.interprete, name='interprete'),
     path('interpretes/atualizarInterpretePerfil/<int:user_id>', views.atualizarInterpretePerfil, name='atualizarInterpretePerfil'),
 ]

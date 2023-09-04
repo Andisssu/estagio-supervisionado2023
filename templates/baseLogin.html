@@ -9,14 +9,34 @@
 
   <link href={% static "assetsLogin/css/style.css" %} rel="stylesheet">
   <link href={% static 'css/CSS_login.css' %} rel="stylesheet">
-  <script src="JS_login.js"></script>
+  <link href={% static 'css/sb-admin-2.css' %} rel="stylesheet">
+  <script src={% static "vendorSB/jquery/jquery.min.js" %} defer></script>
+  <script src={% static "vendorSB/bootstrap/js/bootstrap.bundle.min.js" %} defer></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src={% static "vendorSB/jquery-easing/jquery.easing.min.js" %} defer></script>
+
+  <script src="JS_login.js" defer></script>
   <title>Sistema Estágio</title>
 </head>
 
 <body>
+  <div class="alert-div">
+    {% if messages %}
+      {% for message in messages %}
+          <div class="container-fluid">
+              <div class="alert alert-danger" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          </div>
+      {% endfor %}
+      {% endif %}
+  </div>
   <div class="container">
     <div class="rectangle-3">
-      
       {%block conteudo%}
       {%endblock%}
 
