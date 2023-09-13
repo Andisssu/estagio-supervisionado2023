@@ -190,7 +190,7 @@ def buscarAvisoMonitor(request):
         return render(request, 'avisos/buscarAvisoMonitor.html', {
 
         })
-
+  
 #TUTOR==============================================================================================
 def aviIndexTutor(request):
     avisos = Avisos.objects.order_by('-avi_id').filter(
