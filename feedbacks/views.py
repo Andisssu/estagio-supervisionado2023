@@ -184,6 +184,7 @@ def adminRespostaFeedback(request, feedback_id):
 
     return render(request, 'feedbacks/adminRespostaFeedback.html', context)
 
+
 def adminDeletarFeedback(request, feedback_id):
     feedbackInicial = get_object_or_404(Feedbacks, fee_id=feedback_id)
     list_feedback = Feedbacks.objects.all()

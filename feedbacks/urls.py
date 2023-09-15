@@ -14,7 +14,9 @@ urlpatterns = [
     path('feedback/adminFeedbackAll', views.adminFeedbackAll, name='adminFeedbackAll'),
     path('feedback/adminFeedbackAll/adminOpenfeedback/<int:feedback_id>', views.adminOpenfeedback, name='adminOpenfeedback'),
     path('feedback/adminFeedbackAll/adminOpenAllfeedback/<int:feedback_id>', views.adminOpenAllfeedback, name='adminOpenAllfeedback'),
+    
     path('feedback/adminRespostaFeedback/<int:feedback_id>/', views.adminRespostaFeedback, name='adminRespostaFeedback'),
+
     path('feedback/adminDeletarFeedback/<int:feedback_id>/', views.adminDeletarFeedback, name='adminDeletarFeedback'),
     path('feedback/adminMarcarComoLido/<int:feedback_id>/', views.adminMarcarComoLido, name='adminMarcarComoLido'),
 

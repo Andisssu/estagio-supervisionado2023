@@ -40,7 +40,7 @@ def adicionarAviso(request):
         form = AvisosForm(request.POST, request.FILES)
         if form.is_valid():
             avisoForm = form.save(commit=False)
-            administrador = get_object_or_404(Administrador, adm_cpf=request.user.username)
+            administrador = get_object_or_404(Administrador, adm_nome=request.user.username)            
             avisoForm.avi_administrador = administrador
             avisoForm.save()
             messages.success(request, "Aviso enviado com sucesso!")
