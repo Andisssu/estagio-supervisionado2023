@@ -3,7 +3,7 @@
 
 {%block opcoes%}
     <a class="btn btn-secondary" style="margin-right: 30px"href="{% url 'monitorFeedbackAll' user.id %}" role="button">Voltar</a>
-    <a style="margin-right: 10px" href="{% url 'monitorRespostaFeedback' user.id feedback.fee_id %}" methods="GET" class="btn btn-success">Enviar Resposta</a>
+    {% comment %} <a style="margin-right: 10px" href="{% url 'monitorRespostaFeedback' user.id feedback.fee_id %}" methods="GET" class="btn btn-success">Enviar Resposta</a> {% endcomment %}
 
 {%endblock%}
 
