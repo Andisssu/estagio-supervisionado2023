@@ -9,6 +9,7 @@ from django.core.paginator import Paginator
 from django.contrib import messages
 from .forms import FeedbacksForm, FeedbacksRespostaForm, FeedbacksMonitorForm, FeedbacksTutorForm
 
+
 from membros.models import AlunoPcd, CustomUser, Monitor, Tutor
 from acompanhamentos.models import Acompanhamentos, AcompanhamentoMonitores, AcompanhamentoTutores
 
@@ -204,6 +205,7 @@ def adminRespostaFeedback(request, feedback_id):
     context['submitted'] = submitted
 
     return render(request, 'feedbacks/adminRespostaFeedback.html', context)
+
 
 def adminDeletarFeedback(request, feedback_id):
     feedbackInicial = get_object_or_404(Feedbacks, fee_id=feedback_id)
