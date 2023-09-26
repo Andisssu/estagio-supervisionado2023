@@ -4,10 +4,11 @@ from . import views
 urlpatterns = [
     path('', views.feeIndex, name='feeIndex'),
     path('adicionarFeedback', views.adicionarFeedback, name='adicionarFeedback'),
+    path('adicionarFeedbackAdmin', views.adicionarFeedbackAdmin, name='adicionarFeedbackAdmin'),
     path('buscarFeedback', views.buscarFeedback, name='buscarFeedback'),
     path('feedback/<int:feedback_id>', views.feedback, name='feedback'),
     path('atualizarFeedback/<int:feedback_id>', views.atualizarFeedback, name='atualizarFeedback'),
-
+    
     path('feedback/baixarFileFeedback/<str:filename>/', views.baixarFileFeedback, name='baixarFileFeedback'),
 
     #ADMIN

@@ -33,7 +33,6 @@ def feeIndex(request):
 
 def adicionarFeedback(request):
     submitted = False
-
     context = {}
     if request.POST:
         form = FeedbacksForm(request.POST, request.FILES)
@@ -52,6 +51,29 @@ def adicionarFeedback(request):
     context['form'] = form
     context['submitted'] = submitted
     return render(request, 'feedbacks/adicionarFeedback.html', context)
+
+
+def adicionarFeedbackAdmin(request):
+    submitted = False
+    context = {}
+    if request.POST:
+        form = FeedbacksForm(request.POST, request.FILES)
+        if form.is_valid():
+            # handle_uploaded_file(request.FILES["avi_arquivos"])
+            form.save()
+            return HttpResponseRedirect('adicionarFeedbackAdmin?submitted=True')
+        else:
+            form = FeedbacksForm()
+            form.save()
+            return HttpResponseRedirect('adicionarFeedbackAdmin?submitted=True')
+    else:
+        form = FeedbacksForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    context['form'] = form
+    context['submitted'] = submitted
+    return render(request, 'feedbacks/adicionarFeedbackAdmin.html', context)
+
 
 def feedback(request, feedback_id):
     feedback = get_object_or_404(Feedbacks, fee_id=feedback_id)
