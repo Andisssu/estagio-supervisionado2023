@@ -7275,7 +7275,7 @@ button.bg-dark:hover {
 }
 
 .d-flex {
-    display: flex !important
+    display: flex !important;
 }
 
 .d-inline-flex {
@@ -11655,7 +11655,7 @@ a:focus {
 }
 
 .sidebar .sidebar-brand {
-    height: 4.375rem;
+    height: 10.375rem;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 800;
@@ -11912,9 +11912,26 @@ a:focus {
     background-color: #dddfeb
 }
 
-.sidebar-dark .sidebar-brand {
-    color: #fff
-}
+.sidebar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .sidebar-brand .sidebar-brand-icon img {
+    width: 130px; /* ajuste o tamanho conforme necessário */
+    height: 100px; /* mantém a proporção da imagem */
+    border-radius: 10%; /* arredonda as bordas */
+    margin-top: 50px; /* espaço entre a imagem e o texto */
+  }
+  
+  .sidebar-brand .sidebar-brand-text {
+    font-size: 18px; /* ajuste o tamanho da fonte conforme necessário */
+    font-weight: bold; /* ou outro estilo de fonte desejado */
+  }
+  
 
 .sidebar-dark hr.sidebar-divider {
     border-top: 1px solid rgba(255, 255, 255, .15)
