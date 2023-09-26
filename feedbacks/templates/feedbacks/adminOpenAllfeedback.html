@@ -3,8 +3,9 @@
 
 {%block opcoes%}
     <a class="btn btn-secondary" style="margin-right: 30px" href="{% url 'adminFeedbackAll' %}" role="button">Voltar</a>
-
-    <a  style="margin-right: 10px" href="{% url 'adminRespostaFeedback' ultimo_feedback.fee_id %}" methods="GET" class="btn btn-success">Enviar Resposta</a>
+    {% comment %} <a  style="margin-right: 10px" href="{% url 'adminRespostaFeedback' ultimo_feedback.fee_id %}" methods="GET" class="btn btn-success">Enviar Resposta</a> {% endcomment %}
+    
+    <a style="margin-right: 10px" href="{% url 'adminRespostaFeedback' feedbackInicial.fee_id %}" class="btn btn-success">Enviar Resposta</a>
 
 {%endblock%}
 
@@ -14,7 +15,8 @@
     <section>
         <div class="row">
             <div class="col-12 mt-3 mb-1">
-                <h5 class="text-uppercase" align="center">Lista de Conversa do Feedback: {{feedbackInicial.fee_id}}</h5>
+                <h5 class="text-uppercase" align="center">Lista de Convers
+                    a do Feedback: {{feedbackInicial.fee_id}}</h5>
             </div>
         </div>
 

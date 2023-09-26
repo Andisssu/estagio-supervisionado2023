@@ -4,17 +4,20 @@ from . import views
 urlpatterns = [
     path('', views.feeIndex, name='feeIndex'),
     path('adicionarFeedback', views.adicionarFeedback, name='adicionarFeedback'),
+    path('adicionarFeedbackAdmin', views.adicionarFeedbackAdmin, name='adicionarFeedbackAdmin'),
     path('buscarFeedback', views.buscarFeedback, name='buscarFeedback'),
     path('feedback/<int:feedback_id>', views.feedback, name='feedback'),
     path('atualizarFeedback/<int:feedback_id>', views.atualizarFeedback, name='atualizarFeedback'),
-
+    
     path('feedback/baixarFileFeedback/<str:filename>/', views.baixarFileFeedback, name='baixarFileFeedback'),
 
     #ADMIN
     path('feedback/adminFeedbackAll', views.adminFeedbackAll, name='adminFeedbackAll'),
     path('feedback/adminFeedbackAll/adminOpenfeedback/<int:feedback_id>', views.adminOpenfeedback, name='adminOpenfeedback'),
     path('feedback/adminFeedbackAll/adminOpenAllfeedback/<int:feedback_id>', views.adminOpenAllfeedback, name='adminOpenAllfeedback'),
+    
     path('feedback/adminRespostaFeedback/<int:feedback_id>/', views.adminRespostaFeedback, name='adminRespostaFeedback'),
+
     path('feedback/adminDeletarFeedback/<int:feedback_id>/', views.adminDeletarFeedback, name='adminDeletarFeedback'),
     path('feedback/adminMarcarComoLido/<int:feedback_id>/', views.adminMarcarComoLido, name='adminMarcarComoLido'),
 

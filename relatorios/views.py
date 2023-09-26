@@ -1,4 +1,5 @@
 import os
+from django.forms import ValidationError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404, HttpResponse
 from django.http import HttpResponseRedirect
@@ -74,12 +75,19 @@ def relatorioM(request, relatorioM_id):
         'relatorioM': relatorioM
     })
 
-def relatorioT(request, relatorioT_id):
-    relatorioT = get_object_or_404(RelatoriosTut, relT_id=relatorioT_id)
+# def relatorioT(request, relatorioT_id):
+#     relatorioT = get_object_or_404(RelatoriosTut, relT_id=relatorioT_id)
 
-    return render(request, 'relatorios/relatorioT.html', {
-        'relatorioT': relatorioT
-    })
+#     return render(request, 'relatorios/relatorioT.html', {
+#         'relatorioT': relatorioT
+#     })
+    
+def relatorioT(request, relatorioT_id):
+    try:
+        relatorioT = get_object_or_404(RelatoriosTut, relT_id=relatorioT_id)
+        return render(request, 'relatorios/relatorioT.html', {'relatorioT': relatorioT})
+    except RelatoriosTut.DoesNotExist:
+        raise Http404("Relatório não encontrado")
 
 def buscarRelatorioM(request):
     if request.POST:
@@ -200,6 +208,29 @@ def adicionarRelatorioMonitor(request):
     context['form'] = form
     return render(request, 'relatorios/adicionarRelatorioMonitor.html', context)
 
+# def adicionarRelatorioMonitor(request):
+#     if request.method == 'POST':
+#         relatorio_arquivo = request.FILES.get('relM_arquivo')
+        
+#         if not relatorio_arquivo:
+#             # Tratar caso nenhum arquivo seja fornecido
+#             return render(request, 'relatorios/adicionarRelatorioMonitor.html', {'error_message': 'Nenhum arquivo foi fornecido.'})
+
+#         if not relatorio_arquivo.name.lower().endswith(('.pdf', '.doc', '.docx')):
+#             # Tratar caso o arquivo não tenha uma extensão válida
+#             return render(request, 'relatorios/adicionarRelatorioMonitor.html', {'error_message': 'O arquivo deve ser um PDF, DOC ou DOCX.'})
+
+#         try:
+#             # Salvar o arquivo se todos os critérios forem atendidos
+#             relatorio = RelatoriosMon(relM_arquivo=relatorio_arquivo)
+#             relatorio.save()
+#             return redirect('alguma_view_de_sucesso')
+#         except ValidationError as e:
+#             # Lida com erros de validação de arquivo
+#             return render(request, 'relatorios/adicionarRelatorioMonitor.html', {'error_message': str(e)})
+#     else:
+#         return render(request, 'relatorios/adicionarRelatorioMonitor.html')
+    
 def adicionarRelatorioTutor(request):
     user = request.user
     context = {}
