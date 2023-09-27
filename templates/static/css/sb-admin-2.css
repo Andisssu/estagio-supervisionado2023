@@ -10453,7 +10453,7 @@ a:focus {
 }
 
 .sidebar .sidebar-brand {
-  height: 14.375rem;
+  height: 4.375rem;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 800;
@@ -10515,9 +10515,6 @@ a:focus {
   .sidebar {
     width: 14rem !important;
   }
-
-
-  
   .sidebar .nav-item .collapse {
     position: relative;
     left: 0;
@@ -10577,7 +10574,7 @@ a:focus {
   }
   .sidebar.toggled {
     overflow: visible;
-    width: 8rem !important;
+    width: 6.5rem !important;
   }
   .sidebar.toggled .nav-item .collapse {
     position: absolute;
@@ -10687,27 +10684,6 @@ a:focus {
 .sidebar-dark .sidebar-brand {
   color: #fff;
 }
-
-.sidebar-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.sidebar-brand .sidebar-brand-icon img {
-  width: 130px; /* ajuste o tamanho conforme necessário */
-  height: 100px; /* mantém a proporção da imagem */
-  border-radius: 10%; /* arredonda as bordas */
-  margin-top: 50px; /* espaço entre a imagem e o texto */
-}
-
-.sidebar-brand .sidebar-brand-text {
-  font-size: 18px; /* ajuste o tamanho da fonte conforme necessário */
-  font-weight: bold; /* ou outro estilo de fonte desejado */
-}
-
 
 .sidebar-dark hr.sidebar-divider {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
@@ -10861,13 +10837,6 @@ a:focus {
 @media (min-width: 768px) {
   .chart-area {
     height: 20rem;
-  }
-
-  .sidebar-brand .sidebar-brand-icon img {
-    width: 100px; /* ajuste o tamanho conforme necessário */
-    height: 100px; /* mantém a proporção da imagem */
-    border-radius: 10%; /* arredonda as bordas */
-    margin-bottom: 10px; /* espaço entre a imagem e o texto */
   }
 }
 
