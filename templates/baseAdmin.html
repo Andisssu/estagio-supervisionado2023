@@ -34,7 +34,7 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/avisos/aviIndex">
                 <div class="sidebar-brand-icon">
                     <!-- <i class="fas fa-university"></i> -->
-                    <img src="../templates/static/img/NAI.png" alt="">
+                    <img src="../templates/static/img/NAI.png" alt="Logo NAI">
                 </div>
                 <div class="sidebar-brand-text mx-1">Núcleo de Apoio à Inclusão - NAI</sup></div>
             </a>
@@ -296,6 +296,21 @@
 
     <!-- Custom scripts for all pages-->
     <script src={% static "js/sb-admin-2.min.js" %}></script>
+      <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.slim.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+     <!-- Vlibras-->
+     <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+    
 </body>
 
 </html>

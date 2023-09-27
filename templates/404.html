@@ -201,18 +201,6 @@
                                 <h6 class="dropdown-header">
                                     Alerta de feedbacks
                                 </h6>
-                                <!--                                <a class="dropdown-item d-flex align-items-center" href="#">-->
-                                <!--                                    <div class="dropdown-list-image mr-3">-->
-                                <!--                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"-->
-                                <!--                                            alt="...">-->
-                                <!--                                        <div class="status-indicator bg-success"></div>-->
-                                <!--                                    </div>-->
-                                <!--                                    <div class="font-weight-bold">-->
-                                <!--                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a-->
-                                <!--                                            problem I've been having.</div>-->
-                                <!--                                        <div class="small text-gray-500">Emily Fowler · 58m</div>-->
-                                <!--                                    </div>-->
-                                <!--                                </a>-->
                                 <a class="dropdown-item text-center small text-gray-500" href="/404">Mostrar todos os
                                     feedbacks</a>
                             </div>
@@ -263,7 +251,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Sistema Estágio 2022</span>
+                        <span>Núcleo de Apoio à Inclusão - NAI</span>
                     </div>
                 </div>
             </footer>
@@ -309,6 +297,19 @@
 
     <!-- Custom scripts for all pages-->
     <script src={% static "js/sb-admin-2.min.js" %}></script>
+    
+       <!-- Vlibras-->
+       <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
 </body>
 
 </html>
