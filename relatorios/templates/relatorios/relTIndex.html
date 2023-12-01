@@ -22,6 +22,13 @@
         box-sizing: border-box;
       }
 
+      .btn-primary {
+        color: #fff;
+        background-color: #858796;
+        border-color: #858796;
+      }
+
+
       /* Style the search field */
       .searchbar input {
         padding: 10px;
@@ -117,14 +124,14 @@
                                   </td>
                                   <td>
                                     {% if relatorioM.relM_verificado == True %}
-                                        <a class="btn btn-primary text-white " href="{% url 'desativaVerificadoM' relatorioM.relM_id %}" role="button">Reverter verificação</a>
+                                        <a class="btn btn-secondary text-white " href="{% url 'desativaVerificadoM' relatorioM.relM_id %}" role="button">Reverter verificação</a>
                                     {% else %}
-                                        <a class="btn btn-primary text-white " href="{% url 'ativaVerificadoM' relatorioM.relM_id %}" role="button">Declarar verificado</a>
+                                        <a class="btn btn-secondary text-white " href="{% url 'ativaVerificadoM' relatorioM.relM_id %}" role="button">Declarar verificado</a>
                                     {% endif %}
                                     <!-- Button trigger modal -->
                                     <a class="btn btn-danger text-white" data-toggle="modal" data-target="#deleteModal{{ relatorioM.relM_id }}" role="button">Excluir</a>
                                     <div style="margin-top: 10px;"></div> <!-- Espaçamento entre os botões -->
-                                    <a class="btn btn-primary" href="{% url 'adicionarFeedbackAdmin' %}">Adicionar Feedback</a>
+                                    <a class="btn btn-secondary" href="{% url 'adicionarFeedbackAdmin' %}">Adicionar Feedback</a>
                                     <!-- Modal -->
                                     <div class="modal fade" id="deleteModal{{ relatorioT.relT_id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                       <div class="modal-dialog" role="document">
