@@ -21,6 +21,52 @@
     <!-- Custom styles for this template-->
     <link href={% static "css/sb-admin-2.min.css" %} rel="stylesheet">
 
+    <style>
+        /* .vlibras {
+            z-index: 1  ;
+        }
+
+        .vlibras {
+            position: relative;
+            top: 10px;
+            left: 10px; 
+        }*/
+
+        .sidebar-brand {
+            flex-direction: column;
+        }
+
+        .sidebar .sidebar-brand {
+            height: 15.375rem;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 800;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: .05rem;
+            z-index: 1
+        }
+
+        .sidebar-brand .sidebar-brand-icon img {
+            width: 100px;
+            /* ajuste o tamanho conforme necessário */
+            height: 100px;
+            /* mantém a proporção da imagem */
+            border-radius: 10%;
+            /* arredonda as bordas */
+            margin-top: -10px;
+            /* espaço entre a imagem e o texto */
+        }
+
+        .sidebar-brand .sidebar-brand-text {
+            color: #ffffff;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -33,8 +79,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/avisos/aviIndex">
                 <div class="sidebar-brand-icon">
-                    <!-- <i class="fas fa-university"></i> -->
-                    <img src="../templates/static/img/NAI.png" alt="NAI">
+                    <img src={% static "img/NAI.png" %} alt="NAI">
                 </div>
                 <div class="sidebar-brand-text mx-1">Núcleo de Apoio à Inclusão - NAI</sup></div>
             </a>
@@ -42,83 +87,84 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             {% if user.is_authenticated %}
-                {% if user.user_type == 1 %}
-                    <!-- Heading -->
-                    <div class="sidebar-heading">
-                        Funcionalidades
+            {% if user.user_type == 1 %}
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Funcionalidades
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/avisos/aviIndex">
+                    <i class="fas fa-fw fa-envelope-open-text"></i>
+                    <span>Avisos</span></a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Gestão de Usuários</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Usuários:</h6>
+                        <a class="collapse-item" href="/membros/admin/administradores">Administradores</a>
+                        <a class="collapse-item" href="/membros/admin/alunos">Alunos</a>
+                        <a class="collapse-item" href="/membros/admin/monitores">Monitores</a>
+                        <a class="collapse-item" href="/membros/admin/tutores">Tutores</a>
+                        <a class="collapse-item" href="/membros/admin/interpretes">Interpretes</a>
+                        <h6 class="collapse-header">Homologação:</h6>
+                        <a class="collapse-item" href="/membros/admin/homologarAtivo">Usuários ativos</a>
+                        <a class="collapse-item" href="/membros/admin/homologarInativo">Usuários Inativos</a>
                     </div>
+                </div>
+            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/avisos/aviIndex">
-                            <i class="fas fa-fw fa-envelope-open-text"></i>
-                            <span>Avisos</span></a>
-                    </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Acompanhamentos</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Opções:</h6>
+                        <a class="collapse-item" href="/acompanhamentos">Alunos</a>
+                        <a class="collapse-item" href="/acompanhamentos/disciplinas">Disciplinas</a>
+                        <a class="collapse-item" href="/acompanhamentos/monitorias">Monitores</a>
+                        <a class="collapse-item" href="/acompanhamentos/tutorias">Tutores</a>
+                        <a class="collapse-item" href="/acompanhamentos/interpretacoes">Interpretes</a>
+                    </div>
+                </div>
+            </li>
 
-                    <!-- Nav Item - Pages Collapse Menu -->
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                            aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fas fa-fw fa-cog"></i>
-                            <span>Gestão de Usuários</span>
-                        </a>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Usuários:</h6>
-                                <a class="collapse-item" href="/membros/admin/administradores">Administradores</a>
-                                <a class="collapse-item" href="/membros/admin/alunos">Alunos</a>
-                                <a class="collapse-item" href="/membros/admin/monitores">Monitores</a>
-                                <a class="collapse-item" href="/membros/admin/tutores">Tutores</a>
-                                <a class="collapse-item" href="/membros/admin/interpretes">Interpretes</a>
-                                <h6 class="collapse-header">Homologação:</h6>
-                                <a class="collapse-item" href="/membros/admin/homologarAtivo">Usuários ativos</a>
-                                <a class="collapse-item" href="/membros/admin/homologarInativo">Usuários Inativos</a>
-                            </div>
-                        </div>
-                    </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Relatórios</span>
+                </a>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Opções:</h6>
+                        <a class="collapse-item" href="/relatorios/relMIndex">Monitoria</a>
+                        <a class="collapse-item" href="/relatorios/relTIndex">Tutoria</a>
+                    </div>
+                </div>
+            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
-                            aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fas fa-fw fa-cog"></i>
-                            <span>Acompanhamentos</span>
-                        </a>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Opções:</h6>
-                                <a class="collapse-item" href="/acompanhamentos">Alunos</a>
-                                <a class="collapse-item" href="/acompanhamentos/monitorias">Monitores</a>
-                                <a class="collapse-item" href="/acompanhamentos/tutorias">Tutores</a>
-                                <a class="collapse-item" href="/acompanhamentos/interpretacoes">Interpretes</a>
-                            </div>
-                        </div>
-                    </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'adminFeedbackAll' %}">
+                    <i class="fas fa-fw fa-envelope-open-text"></i>
+                    <span>Feedbacks</span></a>
+            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
-                            aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fas fa-fw fa-cog"></i>
-                            <span>Relatórios</span>
-                        </a>
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Opções:</h6>
-                                <a class="collapse-item" href="/relatorios/relMIndex">Monitoria</a>
-                                <a class="collapse-item" href="/relatorios/relTIndex">Tutoria</a>
-                            </div>
-                        </div>
-                    </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'adminFeedbackAll' %}">
-                            <i class="fas fa-fw fa-envelope-open-text"></i>
-                            <span>Feedbacks</span></a>
-                    </li>
-
-                    <!-- Divider -->
-                    <hr class="sidebar-divider">
-
-                {% else %}
-                {% endif %}
+            {% else %}
+            {% endif %}
             {% else %}
             {% endif %}
             <!-- Sidebar Toggler (Sidebar) -->
@@ -142,37 +188,97 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     {% if user.is_authenticated %}
-                        {% if user.user_type == 1 %}
-                            {%block opcoes%}
-                            <!-- Opcoes-->
-                            {%endblock%}
+                    {% if user.user_type == 1 %}
+                    {%block opcoes%}
+                    <!-- Opcoes-->
+                    {%endblock%}
 
-                            <!-- Topbar Navbar -->
-                            <ul class="navbar-nav ml-auto">
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
 
-                                                                <div class="topbar-divider d-none d-sm-block"></div>
-
-                                <!-- Nav Item - User Information -->
-                                <li class="nav-item dropdown no-arrow">
-                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuário</span>
-                                        <img class="img-profile rounded-circle"
-                                            src={% static "img/undraw_profile.svg" %}>
-                                    </a>
-                                    <!-- Dropdown - User Information -->
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                        aria-labelledby="userDropdown">
-                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                            Deslogar
-                                        </a>
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">1</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerta de avisos
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="/404">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
                                     </div>
-                                </li>
+                                    <div>
+                                        <div class="small text-gray-500">20 de Outubro, 2022</div>
+                                        <span class="font-weight-bold">Olá mundo</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="/avisos/aviIndex">Mostrar
+                                    todos os avisos</a>
+                            </div>
+                        </li>
 
-                            </ul>
-                        {% else %}
-                        {% endif %}
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <!--                                <span class="badge badge-danger badge-counter">0</span>-->
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerta de feedbacks
+                                </h6>
+                                <!--                                <a class="dropdown-item d-flex align-items-center" href="#">-->
+                                <!--                                    <div class="dropdown-list-image mr-3">-->
+                                <!--                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"-->
+                                <!--                                            alt="...">-->
+                                <!--                                        <div class="status-indicator bg-success"></div>-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="font-weight-bold">-->
+                                <!--                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a-->
+                                <!--                                            problem I've been having.</div>-->
+                                <!--                                        <div class="small text-gray-500">Emily Fowler · 58m</div>-->
+                                <!--                                    </div>-->
+                                <!--                                </a>-->
+                                <a class="dropdown-item text-center small text-gray-500" href="/404">Mostrar todos os
+                                    feedbacks</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuário</span>
+                                <img class="img-profile rounded-circle" src={% static "img/undraw_profile.svg" %}>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Deslogar
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                    {% else %}
+                    {% endif %}
                     {% else %}
                     {% endif %}
                 </nav>
@@ -180,69 +286,78 @@
 
                 <!-- Begin Page Content -->
                 {% if messages %}
-                    {% for message in messages %}
-                        <div class="container-fluid">
-                            <div class="alert alert-info" role="alert">
-                              {{ message }}
-                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                        </div>
-                    {% endfor %}
+                {% for message in messages %}
+                <div class="container-fluid">
+                    <div class="alert alert-info" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
                 {% endif %}
                 {% if user.is_authenticated %}
-                    {% if user.user_type == 1 %}
-                        {%block conteudo%}
-                        <!-- /.container-fluid -->
-                        {%endblock%}
-                    {% elif user.user_type == 2 %}
-                        <div class="container-fluid">
-                            <div class="alert alert-warning" role="alert">
-                                Você não tem permissão para acessar essa página. Por favor, <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexAluno' %}">retorne para a página inicial aqui!</a>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                     {% elif user.user_type == 3 %}
-                        <div class="container-fluid">
-                            <div class="alert alert-warning" role="alert">
-                                Você não tem permissão para acessar essa página. Por favor, <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexMonitor' %}">retorne para a página inicial aqui!</a>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                     {% elif user.user_type == 4 %}
-                        <div class="container-fluid">
-                            <div class="alert alert-warning" role="alert">
-                                Você não tem permissão para acessar essa página. Por favor, <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexTutor' %}">retorne para a página inicial aqui!</a>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                     {% elif user.user_type == 5 %}
-                        <div class="container-fluid">
-                            <div class="alert alert-warning" role="alert">
-                                Você não tem permissão para acessar essa página. Por favor, <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexInterprete' %}">retorne para a página inicial aqui!</a>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                     {% endif %}
-                  {% else %}
-                     <div class="container-fluid">
-                         <div class="alert alert-warning" role="alert">
-                             Você não está logado. Por favor, <a style="color:black;" type="button" class="btn-link" href="{% url 'authLogin' %}">retorne para a tela de login aqui!</a>
-                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                 <span aria-hidden="true">&times;</span>
-                             </button>
-                         </div>
-                     </div>
-                  {% endif %}
+                {% if user.user_type == 1 %}
+                {%block conteudo%}
+                <!-- /.container-fluid -->
+                {%endblock%}
+                {% elif user.user_type == 2 %}
+                <div class="container-fluid">
+                    <div class="alert alert-warning" role="alert">
+                        Você não tem permissão para acessar essa página. Por favor, <a style="color:black;"
+                            type="button" class="btn-link" href="{% url 'aviIndexAluno' %}">retorne para a página
+                            inicial aqui!</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% elif user.user_type == 3 %}
+                <div class="container-fluid">
+                    <div class="alert alert-warning" role="alert">
+                        Você não tem permissão para acessar essa página. Por favor, <a style="color:black;"
+                            type="button" class="btn-link" href="{% url 'aviIndexMonitor' %}">retorne para a página
+                            inicial aqui!</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% elif user.user_type == 4 %}
+                <div class="container-fluid">
+                    <div class="alert alert-warning" role="alert">
+                        Você não tem permissão para acessar essa página. Por favor, <a style="color:black;"
+                            type="button" class="btn-link" href="{% url 'aviIndexTutor' %}">retorne para a página
+                            inicial aqui!</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% elif user.user_type == 5 %}
+                <div class="container-fluid">
+                    <div class="alert alert-warning" role="alert">
+                        Você não tem permissão para acessar essa página. Por favor, <a style="color:black;"
+                            type="button" class="btn-link" href="{% url 'aviIndexInterprete' %}">retorne para a página
+                            inicial aqui!</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
+                {% else %}
+                <div class="container-fluid">
+                    <div class="alert alert-warning" role="alert">
+                        Você não está logado. Por favor, <a style="color:black;" type="button" class="btn-link"
+                            href="{% url 'authLogin' %}">retorne para a tela de login aqui!</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
             </div>
             <!-- End of Main Content -->
 
@@ -250,7 +365,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Núcleo de Apoio à Inclusão - NAI</span>
+                        <span>Sistema Estágio 2023</span>
                     </div>
                 </div>
             </footer>
@@ -287,6 +402,25 @@
         </div>
     </div>
 
+
+
+    <!-- <div class="vlibras">
+
+        <script src="{% static 'vendor/jquery/jquery.slim.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
+    </div> -->
+
     <!-- Bootstrap core JavaScript-->
     <script src={% static "vendorSB/jquery/jquery.min.js" %}></script>
     <script src={% static "vendorSB/bootstrap/js/bootstrap.bundle.min.js" %}></script>
@@ -296,21 +430,8 @@
 
     <!-- Custom scripts for all pages-->
     <script src={% static "js/sb-admin-2.min.js" %}></script>
-      <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'vendor/jquery/jquery.slim.min.js' %}"></script>
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-     <!-- Vlibras-->
-     <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-      </div>
-  </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-      new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
-    
+
+
 </body>
 
 </html>

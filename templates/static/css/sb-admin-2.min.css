@@ -2691,46 +2691,7 @@ fieldset:disabled a.btn {
     pointer-events: none
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #4e73df;
-    border-color: #4e73df
-}
 
-.btn-primary:hover {
-    color: #fff;
-    background-color: #2e59d9;
-    border-color: #2653d4
-}
-
-.btn-primary.focus,
-.btn-primary:focus {
-    color: #fff;
-    background-color: #2e59d9;
-    border-color: #2653d4;
-    box-shadow: 0 0 0 .2rem rgba(105, 136, 228, .5)
-}
-
-.btn-primary.disabled,
-.btn-primary:disabled {
-    color: #fff;
-    background-color: #4e73df;
-    border-color: #4e73df
-}
-
-.btn-primary:not(:disabled):not(.disabled).active,
-.btn-primary:not(:disabled):not(.disabled):active,
-.show>.btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #2653d4;
-    border-color: #244ec9
-}
-
-.btn-primary:not(:disabled):not(.disabled).active:focus,
-.btn-primary:not(:disabled):not(.disabled):active:focus,
-.show>.btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 .2rem rgba(105, 136, 228, .5)
-}
 
 .btn-secondary {
     color: #fff;
@@ -11654,7 +11615,7 @@ a:focus {
     display: none
 }
 
-.sidebar .sidebar-brand {
+/* .sidebar .sidebar-brand {
     height: 10.375rem;
     text-decoration: none;
     font-size: 1rem;
@@ -11664,7 +11625,7 @@ a:focus {
     text-transform: uppercase;
     letter-spacing: .05rem;
     z-index: 1
-}
+} */
 
 .sidebar .sidebar-brand .sidebar-brand-icon i {
     font-size: 2rem
@@ -11920,18 +11881,19 @@ a:focus {
     text-align: center;
   }
   
-  .sidebar-brand .sidebar-brand-icon img {
-    width: 130px; /* ajuste o tamanho conforme necessário */
-    height: 100px; /* mantém a proporção da imagem */
-    border-radius: 10%; /* arredonda as bordas */
-    margin-top: 50px; /* espaço entre a imagem e o texto */
-  }
+  /* .sidebar-brand .sidebar-brand-icon img {
+    width: 130px; 
+    height: 100px;
+    border-radius: 10%;
+    margin-top: 0px; 
+  } */
   
-  .sidebar-brand .sidebar-brand-text {
-    font-size: 18px; /* ajuste o tamanho da fonte conforme necessário */
-    font-weight: bold; /* ou outro estilo de fonte desejado */
+  /* .sidebar-brand .sidebar-brand-text {
+    
+    font-size: 18px;
+    font-weight: bold; 
   }
-  
+   */
 
 .sidebar-dark hr.sidebar-divider {
     border-top: 1px solid rgba(255, 255, 255, .15)
@@ -12629,3 +12591,35 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
     width: 100%
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
