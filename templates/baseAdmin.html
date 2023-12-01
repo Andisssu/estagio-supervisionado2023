@@ -22,15 +22,6 @@
     <link href={% static "css/sb-admin-2.min.css" %} rel="stylesheet">
 
     <style>
-        /* .vlibras {
-            z-index: 1  ;
-        }
-
-        .vlibras {
-            position: relative;
-            top: 10px;
-            left: 10px; 
-        }*/
 
         .sidebar-brand {
             flex-direction: column;
@@ -268,7 +259,8 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                                aria-labelledby="userDropdown" style="
+                                z-index: 200;">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Deslogar
