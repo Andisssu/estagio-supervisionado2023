@@ -10452,7 +10452,7 @@ a:focus {
   display: none;
 }
 
-.sidebar .sidebar-brand {
+/* .sidebar .sidebar-brand {
   height: 4.375rem;
   text-decoration: none;
   font-size: 1rem;
@@ -10462,7 +10462,7 @@ a:focus {
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   z-index: 1;
-}
+} */
 
 .sidebar .sidebar-brand .sidebar-brand-icon i {
   font-size: 2rem;

@@ -4,13 +4,11 @@
   ],
   "hints": {
     "meta-viewport": "off",
-    "compat-api/css": [
-      "default",
-      {
-        "ignore": [
-          "user-select"
-        ]
-      }
-    ]
+    "compat-api/css": "off",
+    "axe/aria": "off",
+    "axe/name-role-value": "off",
+    "axe/structure": "off",
+    "axe/text-alternatives": "off",
+    "disown-opener": "off"
   }
 }

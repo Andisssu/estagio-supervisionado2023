@@ -1,9 +1,7 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt">
 
 <head>
-
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,56 +40,56 @@
             <hr class="sidebar-divider">
 
             {% if user.is_authenticated %}
-                {% if user.user_type == 3 %}
-                    <!-- Heading -->
-                    <div class="sidebar-heading">
-                        Funcionalidades
+            {% if user.user_type == 3 %}
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Funcionalidades
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/avisos/aviIndexMonitor">
+                    <i class="fas fa-fw fa-envelope-open-text"></i>
+                    <span>Avisos</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'monitor' user.id %}">
+                    <i class="fas fa-fw fa-envelope-open-text"></i>
+                    <span>Perfil</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Acompanhamentos</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Opções:</h6>
+                        <a class="collapse-item" href="{% url 'acoIndexMonitor' user.id %}">Alunos</a>
+                        <a class="collapse-item" href="{% url 'acoDisIndexMonitor' user.id %}">Disciplinas</a>
                     </div>
+                </div>
+            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/avisos/aviIndexMonitor">
-                            <i class="fas fa-fw fa-envelope-open-text"></i>
-                            <span>Avisos</span></a>
-                    </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'monitorFeedbackAll' user.id %}">
+                    <i class="fas fa-fw fa-envelope-open-text"></i>
+                    <span>Feedbacks</span></a>
+            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'monitor' user.id %}">
-                            <i class="fas fa-fw fa-envelope-open-text"></i>
-                            <span>Perfil</span></a>
-                    </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'relMIndexMonitor' user.id %}">
+                    <i class="fas fa-fw fa-envelope-open-text"></i>
+                    <span>Relatórios</span></a>
+            </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
-                            aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="fas fa-fw fa-cog"></i>
-                            <span>Acompanhamentos</span>
-                        </a>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Opções:</h6>
-                                <a class="collapse-item" href="{% url 'acoIndexMonitor' user.id %}">Alunos</a>
-                                <a class="collapse-item" href="{% url 'acoDisIndexMonitor' user.id %}">Disciplinas</a>
-                            </div>
-                        </div>
-                    </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'monitorFeedbackAll' user.id %}">
-                            <i class="fas fa-fw fa-envelope-open-text"></i>
-                            <span>Feedbacks</span></a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'relMIndexMonitor' user.id %}">
-                            <i class="fas fa-fw fa-envelope-open-text"></i>
-                            <span>Relatórios</span></a>
-                    </li>
-
-                    <!-- Divider -->
-                    <hr class="sidebar-divider">
-
-                {% else %}
-                {% endif %}
+            {% else %}
+            {% endif %}
             {% else %}
             {% endif %}
             <!-- Sidebar Toggler (Sidebar) -->
@@ -116,34 +114,33 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     {% if user.is_authenticated %}
-                        {% if user.user_type == 3 %}
-                            {%block opcoes%}
-                            <!-- Opcoes-->
-                            {%endblock%}
-                            
-                                <div class="topbar-divider d-none d-sm-block"></div>
+                    {% if user.user_type == 3 %}
+                    {%block opcoes%}
+                    <!-- Opcoes-->
+                    {%endblock%}
 
-                                <!-- Nav Item - User Information -->
-                                <li class="nav-item dropdown no-arrow">
-                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuário</span>
-                                        <img class="img-profile rounded-circle"
-                                            src={% static "img/undraw_profile.svg" %}>
-                                    </a>
-                                    <!-- Dropdown - User Information -->
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                        aria-labelledby="userDropdown">
-                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                            Deslogar
-                                        </a>
-                                    </div>
-                                </li>
+                    <div class="topbar-divider d-none d-sm-block"></div>
 
-                            </ul>
-                        {% else %}
-                        {% endif %}
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuário</span>
+                            <img class="img-profile rounded-circle" src={% static "img/undraw_profile.svg" %}>
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Deslogar
+                            </a>
+                        </div>
+                    </li>
+
+                    </ul>
+                    {% else %}
+                    {% endif %}
                     {% else %}
                     {% endif %}
                 </nav>
@@ -151,69 +148,78 @@
 
                 <!-- Begin Page Content -->
                 {% if messages %}
-                    {% for message in messages %}
-                        <div class="container-fluid">
-                            <div class="alert alert-info" role="alert">
-                              {{ message }}
-                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                        </div>
-                    {% endfor %}
+                {% for message in messages %}
+                <div class="container-fluid">
+                    <div class="alert alert-info" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
                 {% endif %}
                 {% if user.is_authenticated %}
-                    {% if user.user_type == 3 %}
-                        {%block conteudo%}
-                        <!-- /.container-fluid -->
-                        {%endblock%}
-                    {% elif user.user_type == 1 %}
-                        <div class="container-fluid">
-                            <div class="alert alert-warning" role="alert">
-                                Você não tem permissão para acessar essa página. Por favor, <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndex' %}">retorne para a página inicial aqui!</a>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                     {% elif user.user_type == 2 %}
-                        <div class="container-fluid">
-                            <div class="alert alert-warning" role="alert">
-                                Você não tem permissão para acessar essa página. Por favor, <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexAluno' %}">retorne para a página inicial aqui!</a>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                     {% elif user.user_type == 4 %}
-                        <div class="container-fluid">
-                            <div class="alert alert-warning" role="alert">
-                                Você não tem permissão para acessar essa página. Por favor, <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexTutor' %}">retorne para a página inicial aqui!</a>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                     {% elif user.user_type == 5 %}
-                        <div class="container-fluid">
-                            <div class="alert alert-warning" role="alert">
-                                Você não tem permissão para acessar essa página. Por favor, <a style="color:black;" type="button" class="btn-link" href="{% url 'aviIndexInterprete' %}">retorne para a página inicial aqui!</a>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                     {% endif %}
-                  {% else %}
-                     <div class="container-fluid">
-                         <div class="alert alert-warning" role="alert">
-                             Você não está logado. Por favor, <a style="color:black;" type="button" class="btn-link" href="{% url 'authLogin' %}">retorne para a tela de login aqui!</a>
-                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                 <span aria-hidden="true">&times;</span>
-                             </button>
-                         </div>
-                     </div>
-                  {% endif %}
+                {% if user.user_type == 3 %}
+                {%block conteudo%}
+                <!-- /.container-fluid -->
+                {%endblock%}
+                {% elif user.user_type == 1 %}
+                <div class="container-fluid">
+                    <div class="alert alert-warning" role="alert">
+                        Você não tem permissão para acessar essa página. Por favor, <a style="color:black;"
+                            type="button" class="btn-link" href="{% url 'aviIndex' %}">retorne para a página inicial
+                            aqui!</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% elif user.user_type == 2 %}
+                <div class="container-fluid">
+                    <div class="alert alert-warning" role="alert">
+                        Você não tem permissão para acessar essa página. Por favor, <a style="color:black;"
+                            type="button" class="btn-link" href="{% url 'aviIndexAluno' %}">retorne para a página
+                            inicial aqui!</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% elif user.user_type == 4 %}
+                <div class="container-fluid">
+                    <div class="alert alert-warning" role="alert">
+                        Você não tem permissão para acessar essa página. Por favor, <a style="color:black;"
+                            type="button" class="btn-link" href="{% url 'aviIndexTutor' %}">retorne para a página
+                            inicial aqui!</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% elif user.user_type == 5 %}
+                <div class="container-fluid">
+                    <div class="alert alert-warning" role="alert">
+                        Você não tem permissão para acessar essa página. Por favor, <a style="color:black;"
+                            type="button" class="btn-link" href="{% url 'aviIndexInterprete' %}">retorne para a página
+                            inicial aqui!</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
+                {% else %}
+                <div class="container-fluid">
+                    <div class="alert alert-warning" role="alert">
+                        Você não está logado. Por favor, <a style="color:black;" type="button" class="btn-link"
+                            href="{% url 'authLogin' %}">retorne para a tela de login aqui!</a>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
             </div>
             <!-- End of Main Content -->
 
@@ -268,11 +274,11 @@
     <!-- Custom scripts for all pages-->
     <script src={% static "js/sb-admin-2.min.js" %}></script>
 
-       <!-- Vlibras-->
-       <div vw class="enabled">
+    <!-- Vlibras-->
+    <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
-          <div class="vw-plugin-top-wrapper"></div>
+            <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
@@ -282,4 +288,7 @@
 
 </body>
 
-</html>
+
+
+
+
