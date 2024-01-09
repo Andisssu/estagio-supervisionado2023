@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('baixarFileAviso/<str:filename>', views.baixarFileAviso, name='baixarFileAviso'),
 
-#ADMIN
+#ADMINN
     path('aviIndex', views.aviIndex, name='aviIndex'),
     path('adicionarAviso', views.adicionarAviso, name='adicionarAviso'),
     path('buscarAviso', views.buscarAviso, name='buscarAviso'),
