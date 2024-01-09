@@ -1,7 +1,7 @@
 {% extends 'baseAdmin.html' %}
 
 {%block opcoes%}
-    <a class="btn btn-primary" style="margin-right: 30px" href="/membros/admin/adicionarMonitor" role="button">Criar monitor</a>
+    <a class="btn btn-secondary" style="margin-right: 30px" href="/membros/admin/adicionarMonitor" role="button">Criar monitor</a>
     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
           method="POST" action="{% url 'buscarMonitor' %}">
         <div class="input-group">
