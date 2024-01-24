@@ -17,7 +17,7 @@ class BaseFeedbacksForm(ModelForm):
         }
         widgets = {
             'fee_titulo': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Titulo'}),
-            'fee_descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': 5, 'placeholder': 'Descricao'}),
+            'fee_descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': 5, 'placeholder': 'Descrição'}),
             'fee_arquivo': forms.FileInput(attrs={'class': 'form-control'}),
         }
 
