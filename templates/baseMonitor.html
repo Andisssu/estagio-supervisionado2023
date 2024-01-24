@@ -19,6 +19,43 @@
     <!-- Custom styles for this template-->
     <link href={% static "css/sb-admin-2.min.css" %} rel="stylesheet">
 
+    <style>
+
+        .sidebar-brand {
+            flex-direction: column;
+        }
+
+        .sidebar .sidebar-brand {
+            height: 15.375rem;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 800;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: .05rem;
+            z-index: 1
+        }
+
+        .sidebar-brand .sidebar-brand-icon img {
+            width: 100px;
+            /* ajuste o tamanho conforme necessário */
+            height: 100px;
+            /* mantém a proporção da imagem */
+            border-radius: 10%;
+            /* arredonda as bordas */
+            margin-top: -10px;
+            /* espaço entre a imagem e o texto */
+        }
+
+        .sidebar-brand .sidebar-brand-text {
+            color: #ffffff;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -29,9 +66,9 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/avisos/aviIndexMonitor">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/avisos/aviIndex">
                 <div class="sidebar-brand-icon">
-                    <i class="fas fa-university"></i>
+                    <img src={% static "img/NAI.png" %} alt="NAI">
                 </div>
                 <div class="sidebar-brand-text mx-1">Núcleo de Apoio à Inclusão - NAI</sup></div>
             </a>
