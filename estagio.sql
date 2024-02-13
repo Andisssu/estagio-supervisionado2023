@@ -194,9 +194,15 @@ create table if not exists FEEDBACKS (
     fee_data datetime not null,
     fee_arquivo mediumtext,
     fee_acompanhamento int,
+    fee_anterior int,
+    fee_emissor int,
+    fee_inicial int,
+    fee_proximo int,
+    fee_few int,
     primary key(fee_id),
     foreign key(fee_acompanhamento) references ACOMPANHAMENTO(aco_id)
 );
+
 
 create table if not exists LAUDOS (
 	lau_id int not null auto_increment,
